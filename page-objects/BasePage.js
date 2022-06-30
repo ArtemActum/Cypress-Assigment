@@ -22,4 +22,9 @@ export default class BasePage {
     //cy.viewport('macbook-15')
     cy.viewport(1980, 1080);
   }
+
+  static acceptCookies() {
+   cy.get("#onetrust-accept-btn-handler").click();
+  }
+
 }

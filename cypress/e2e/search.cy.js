@@ -1,3 +1,4 @@
+import BasePage from "../../page-objects/BasePage"
 import Navbar from "../../page-objects/components/Navbar"
 import LoginPage from "../../page-objects/pages/LoginPage"
 import { url, login_password, login_username } from "/config"
@@ -5,12 +6,22 @@ import { url, login_password, login_username } from "/config"
 describe("Search tests", () => {
 	before(function () {
 		cy.visit(url)
-		cy.get("#onetrust-accept-btn-handler").click()
+		BasePage.acceptCookies()
 	})
 
-	it("positive tests", () => {
-		Navbar.search("a")
+	it("check if search is not case sensitive", () => {
+		Navbar.search("Ralston Crawford")
+		Navbar.search("rAlStON cRaWford")
 	})
 
-	it("some negative tests", () => {})
+	it("check if magnifying glass is working", () => {
+		Navbar.searchWithMagnifyingGlass("Ralston Crawford")
+	})
+
+	it("some negative tests", () => {
+		Navbar.search("<script></script>")
+		Navbar.search("%")
+		Navbar.search("#")
+		Navbar.search(" ") // 1 space
+	})
 })

@@ -7,6 +7,13 @@ export default class Navbar {
 		cy.get("#site-search").type(`${text} {enter}`)
 	}
 
+	static searchWithMagnifyingGlass(text) {
+		cy.get("#site-search").type(`${text}`)
+		cy.get(
+			".chr-header__user-zone > :nth-child(1) > chr-autocomplete-input.hydrated > .chr-autocomplete-input > .chr-autocomplete-input__wrapper > chr-button.hydrated > .chr-button > .hydrated > .chr-icon__wrapper > .chr-icon"
+		).click()
+	}
+
 	static displaySignInButton() {
 		cy.isVisible("")
 	}
@@ -25,7 +32,9 @@ export default class Navbar {
 		cy.get(
 			'chr-button[aria-label="User navigation"] > .chr-button > .hydrated > .chr-icon__wrapper > .chr-icon'
 		).click()
-        cy.get('.chr-user-nav__list > :nth-child(2) > .hydrated > .chr-button > .chr-button__text').click()
+		cy.get(
+			".chr-user-nav__list > :nth-child(2) > .hydrated > .chr-button > .chr-button__text"
+		).click()
 	}
 
 	static switchlanguageZh() {
@@ -36,7 +45,7 @@ export default class Navbar {
 
 	static switchlanguageZhCn() {
 		cy.get(".div:nth-of-type(2) > a:nth-of-type(2)").click()
-
+		cy.url().should("include", "lang=zh-cn")
 		cy.go("back")
 	}
 
