@@ -1,23 +1,22 @@
 import { url, login_password, login_username } from "/config"
-import LoginPage from "../../page-objects/pages/LoginPage"
-import Navbar from "../../page-objects/components/Navbar"
-import BasePage from "../../page-objects/BasePage"
+import LoginPage from "../../page-objects/pages/loginPage"
+import Navbar from "../../page-objects/components/navbar"
+import BasePage from "../../page-objects/basePage"
 
 describe("Login Success Test", () => {
+	const loginPage = new LoginPage()
+	const navbar = new Navbar()
+	const basePage = new BasePage()
+
 	before(function () {
 		cy.visit(url)
-		cy.get("#onetrust-accept-btn-handler").click()
+		BasePage.acceptCookies()
 	})
 
 	it("should login into application", () => {
 		LoginPage.login(login_username, login_password)
 		Navbar.myAccount()
 		cy.url().should("include", "/mychristies/activities")
-	})
-
-	it("should logout from application", () => {
-		Navbar.logout()
-		// Navbar.displaySignInButton()
 	})
 
 	describe("Login Failed Test", () => {
@@ -30,9 +29,6 @@ describe("Login Success Test", () => {
 				"have.value",
 				"invalid username"
 			)
-		})
-
-		it("should display error message", () => {
 			LoginPage.displayErrorMessage()
 		})
 	})
