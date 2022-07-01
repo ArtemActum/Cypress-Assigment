@@ -10,6 +10,7 @@ describe("Language Switcher Functionality", () => {
 
 	before(function () {
 		cy.visit(url)
+		cy.viewport(1080, 1920)
 		basePage.acceptCookies()
 	})
 
@@ -19,5 +20,9 @@ describe("Language Switcher Functionality", () => {
 
 	it("Switch Zh-Cn language", () => {
 		navbar.switchlanguageZhCn()
+	})
+
+	it("Switch En language", () => {
+		navbar.switchlanguageEn()
 	})
 })

@@ -38,15 +38,38 @@ export default class Navbar {
 	}
 
 	switchlanguageZh() {
-		cy.get(".div:nth-of-type(2) > a:nth-of-type(1)").click()
+		cy.get(
+			".chr-header__user-zone > :nth-child(2) > chr-button.hydrated > .chr-button"
+		).click()
+		cy.get("#site-lang").click()
+		cy.get(":nth-child(2) > .chr-dropdown-list__item").click()
+		// cy.get(".div:nth-of-type(2) > a:nth-of-type(1)").click()
 		cy.url().should("include", "lang=zh")
 		cy.go("back")
 	}
 
 	switchlanguageZhCn() {
-		cy.get(".div:nth-of-type(2) > a:nth-of-type(2)").click()
+		cy.get(
+			".chr-header__user-zone > :nth-child(2) > chr-button.hydrated > .chr-button"
+		).click()
+		cy.get("#site-lang").click()
+		cy.get(":nth-child(3) > .chr-dropdown-list__item").click()
 		cy.url().should("include", "lang=zh-cn")
 		cy.go("back")
+	}
+
+	switchlanguageEn() {
+        cy.get(
+			".chr-header__user-zone > :nth-child(2) > chr-button.hydrated > .chr-button"
+		).click()
+		cy.get("#site-lang").click()
+		cy.get(":nth-child(2) > .chr-dropdown-list__item").click()
+        cy.get(
+			".chr-header__user-zone > :nth-child(2) > chr-button.hydrated > .chr-button"
+		).click()
+		cy.get("#site-lang").click()
+		cy.get(":nth-child(2) > .chr-dropdown-list__item").click()
+		cy.url().should("include", "sc_lang=en")
 	}
 
 	myAccount() {
