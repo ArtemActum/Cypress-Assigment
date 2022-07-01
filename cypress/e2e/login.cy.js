@@ -3,7 +3,7 @@ import LoginPage from "../../page-objects/pages/loginPage"
 import Navbar from "../../page-objects/components/navbar"
 import BasePage from "../../page-objects/basePage"
 
-describe("Login Success Test", () => {
+describe("Login Functionality Tests", () => {
 	const loginPage = new LoginPage()
 	const navbar = new Navbar()
 	const basePage = new BasePage()
@@ -11,24 +11,17 @@ describe("Login Success Test", () => {
 	before(function () {
 		cy.visit(url)
 		basePage.acceptCookies()
+		cy.viewport(1080, 1920)
 	})
 
-	it("should login into application", () => {
+	it("login into application", () => {
 		loginPage.login(login_username, login_password)
 		navbar.myAccount()
 		cy.url().should("include", "/mychristies/activities")
 	})
 
-	describe("Login Failed Test", () => {
-		before(function () {
-			cy.visit(url)
-			basePage.acceptCookies()
-		})
-		it("should try to login with invalid credentials", () => {
-			loginPage
-				.login("invalid username", "invalid password")
-				.should("have.value", "invalid username")
-			loginPage.displayErrorMessage()
-		})
+	it("should try to login with invalid credentials", () => {
+		loginPage.login("invalid username", "invalid password")
+		loginPage.displayErrorMessage()
 	})
 })

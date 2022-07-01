@@ -1,34 +1,34 @@
 export default class Navbar {
-	static clickOnLogo() {
+	clickOnLogo() {
 		cy.get(".chr-header__link-site  svg").click()
 	}
 
-	static search(text) {
+	search(text) {
 		cy.get("#site-search").type(`${text} {enter}`)
 	}
 
-	static searchWithMagnifyingGlass(text) {
+	searchWithMagnifyingGlass(text) {
 		cy.get("#site-search").type(`${text}`)
 		cy.get(
 			".chr-header__user-zone > :nth-child(1) > chr-autocomplete-input.hydrated > .chr-autocomplete-input > .chr-autocomplete-input__wrapper > chr-button.hydrated > .chr-button > .hydrated > .chr-icon__wrapper > .chr-icon"
 		).click()
 	}
 
-	static displaySignInButton() {
+	displaySignInButton() {
 		cy.isVisible("")
 	}
 
-	static clickSignIn() {
+	clickSignIn() {
 		cy.get(
 			".hydrated > .chr-button.chr-button--light.chr-button--primary.chr-button--sm"
 		).click()
 	}
 
-	static clickSettings() {
+	clickSettings() {
 		cy.contains("Settings").click()
 	}
 
-	static logout() {
+	logout() {
 		cy.get(
 			'chr-button[aria-label="User navigation"] > .chr-button > .hydrated > .chr-icon__wrapper > .chr-icon'
 		).click()
@@ -37,19 +37,19 @@ export default class Navbar {
 		).click()
 	}
 
-	static switchlanguageZh() {
+	switchlanguageZh() {
 		cy.get(".div:nth-of-type(2) > a:nth-of-type(1)").click()
 		cy.url().should("include", "lang=zh")
 		cy.go("back")
 	}
 
-	static switchlanguageZhCn() {
+	switchlanguageZhCn() {
 		cy.get(".div:nth-of-type(2) > a:nth-of-type(2)").click()
 		cy.url().should("include", "lang=zh-cn")
 		cy.go("back")
 	}
 
-	static myAccount() {
+	myAccount() {
 		cy.get(
 			'chr-button[aria-label="User navigation"] > .chr-button > .hydrated > .chr-icon__wrapper > .chr-icon'
 		).click()
