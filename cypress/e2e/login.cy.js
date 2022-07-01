@@ -10,26 +10,25 @@ describe("Login Success Test", () => {
 
 	before(function () {
 		cy.visit(url)
-		BasePage.acceptCookies()
+		basePage.acceptCookies()
 	})
 
 	it("should login into application", () => {
-		LoginPage.login(login_username, login_password)
-		Navbar.myAccount()
+		loginPage.login(login_username, login_password)
+		navbar.myAccount()
 		cy.url().should("include", "/mychristies/activities")
 	})
 
 	describe("Login Failed Test", () => {
 		before(function () {
 			cy.visit(url)
-			BasePage.acceptCookies()
+			basePage.acceptCookies()
 		})
 		it("should try to login with invalid credentials", () => {
-			LoginPage.login("invalid username", "invalid password").should(
-				"have.value",
-				"invalid username"
-			)
-			LoginPage.displayErrorMessage()
+			loginPage
+				.login("invalid username", "invalid password")
+				.should("have.value", "invalid username")
+			loginPage.displayErrorMessage()
 		})
 	})
 })

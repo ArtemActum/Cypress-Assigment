@@ -10,14 +10,14 @@ describe("Language Switcher Functionality", () => {
 
 	before(function () {
 		cy.visit(url)
-		BasePage.acceptCookies()
+		basePage.acceptCookies()
 	})
 
 	it("Switch ZH language", () => {
-		Navbar.switchlanguageZh()
+		navbar.switchlanguageZh()
 	})
 
 	it("Switch Zh-Cn language", () => {
-		Navbar.switchlanguageZhCn()
+		navbar.switchlanguageZhCn()
 	})
 })

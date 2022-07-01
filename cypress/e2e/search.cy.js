@@ -10,23 +10,23 @@ describe("Search tests", () => {
 
 	before(function () {
 		cy.visit(url)
-		BasePage.acceptCookies()
+		basePage.acceptCookies()
 	})
 
 	it("check if search is not case sensitive", () => {
-		Navbar.search("Ralston Crawford")
+		navbar.search("Ralston Crawford")
 		cy.url().should("include", "/mychristies/activities")
-		Navbar.search("rAlStON cRaWford")
+		navbar.search("rAlStON cRaWford")
 	})
 
 	it("check if magnifying glass is working", () => {
-		Navbar.searchWithMagnifyingGlass("Ralston Crawford")
+		navbar.searchWithMagnifyingGlass("Ralston Crawford")
 	})
 
 	it("some negative tests", () => {
-		Navbar.search("<script></script>")
-		Navbar.search("%")
-		Navbar.search("#")
-		Navbar.search(" ") // 1 space
+		navbar.search("<script></script>")
+		navbar.search("%")
+		navbar.search("#")
+		navbar.search(" ") // 1 space
 	})
 })
