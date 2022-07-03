@@ -32,6 +32,7 @@ describe('Search tests', () => {
 
   it('check if search is not case sensitive', () => {
     navbar.search('rAlStON cRaWford')
+    cy.url().should('include', 'Ralston Crawford')
     cy.get('.chr-lot-tile__link').contains('Ralston Crawford')
   })
 
