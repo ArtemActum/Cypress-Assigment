@@ -10,31 +10,40 @@ describe('Search tests', () => {
   const basePage = new BasePage()
   const searchPage = new SearchPage()
 
-  before(function () {
-    cy.visit(url)
-    basePage.acceptCookies()
+  beforeEach(() => {
+    const date = new Date().toString()
+    // cy.setCookie('FastSignup', 'FastSignupCreated')
+    // cy.setCookie('OptanonAlertBoxClosed', date)
+    // cy.visit('staging.christies.com/search')
+
+    // cy.visit(url)
+    // basePage.acceptCookies()
+    // //basePage.setCookie()
+
+    cy.visit(url).then(() => {
+      basePage.setCookie()
+    })
   })
 
-  // it("check if search is working", () => {
-  // 	navbar.search("Ralston Crawford")
-  // 	cy.get(search.searchResultItems).should("have.length.at.least", 1)
-  // })
+  it('check if search is working', () => {
+    navbar.search('Ralston Crawford')
+    cy.get(searchPage.searchResultItems).should('have.length.at.least', 1)
+  })
 
-  // it("check if search is not case sensitive", () => {
-  // 	navbar.search("rAlStON cRaWford")
-  // 	cy.get(".chr-lot-tile__link").contains("Ralston Crawford")
-  // })
+  it('check if search is not case sensitive', () => {
+    navbar.search('rAlStON cRaWford')
+    cy.get('.chr-lot-tile__link').contains('Ralston Crawford')
+  })
 
-  // it("check if magnifying glass is working", () => {
-  // 	navbar.searchWithMagnifyingGlass("Ralston Crawford")
-  // 	cy.get(searchPage.searchResultItems).should("have.length.at.least", 1)
-  // })
+  it('check if magnifying glass is working', () => {
+    navbar.searchWithMagnifyingGlass('Ralston Crawford')
+    cy.get(searchPage.searchResultItems).should('have.length.at.least', 1)
+  })
 
-  it('some negative tests', () => {
-    navbar.search('<script></script>')
-    cy.get(search.searchResultItems).should('have.length', 0)
-    // navbar.search("%")
-    // navbar.search("#")
-    // navbar.search(" ") // 1 space
+  it('special chars', () => {
+    navbar.search('%')
+    cy.get(searchPage.searchResultItems).should('have.length', 0)
+    navbar.search(' ') // 1 space
+    cy.get(searchPage.searchResultItems).should('have.length', 0)
   })
 })
