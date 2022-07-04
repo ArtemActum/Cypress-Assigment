@@ -27,6 +27,7 @@ describe('Search tests', () => {
 
   it('check if search is working', () => {
     navbar.search('Ralston Crawford')
+    cy.url().should('include', 'Ralston')
     cy.get(searchPage.searchResultItems).should('have.length.at.least', 1)
   })
 
