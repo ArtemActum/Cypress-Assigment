@@ -1,4 +1,8 @@
 export default class BasePage {
+  // Elements
+  forgottenLink = '.chr-modal .chr-body.chr-link--underline'
+
+  // Page Object Methods
   pause(ms) {
     cy.wait(ms)
   }
