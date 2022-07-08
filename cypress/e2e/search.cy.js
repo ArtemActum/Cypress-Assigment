@@ -11,15 +11,6 @@ describe('Search tests', () => {
   const searchPage = new SearchPage()
 
   beforeEach(() => {
-    const date = new Date().toString()
-    // cy.setCookie('FastSignup', 'FastSignupCreated')
-    // cy.setCookie('OptanonAlertBoxClosed', date)
-    // cy.visit('staging.christies.com/search')
-
-    // cy.visit(url)
-    // basePage.acceptCookies()
-    // //basePage.setCookie()
-
     cy.visit(url).then(() => {
       basePage.setCookie()
     })
