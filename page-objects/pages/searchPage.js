@@ -2,6 +2,13 @@ import BasePage from '../basePage'
 
 export default class searchPage extends BasePage {
   // Elements
-  searchResultItems = '.chr-lot-tile'
+
+  //searchResultItem = '.chr-lot-tile'
+  //searchResultItems = '.grid row chr-lot-tiles__wrapper'
+  searchResultItems = 'chr-search-lots-view hydrated'
+  //searchResultItems = '.chr-search-results__tab-bar-wrapper'
   noResultsFoundDiv = '.chr-search-results__no-results.container-fluid'
+  availableLots = '[data-qa="tab-available_lots"]>span'
+  soldLots = '[data-qa="tab-sold_lots"]>span'
+  articles = '[data-qa="tab-articles"]>span'
 }
