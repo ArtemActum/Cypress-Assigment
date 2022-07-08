@@ -8,11 +8,11 @@ describe("Language Switcher Functionality", () => {
 	const navbar = new Navbar()
 	const basePage = new BasePage()
 
-	before(function () {
-		cy.visit(url)
-		cy.viewport(1080, 1920)
-		basePage.acceptCookies()
-	})
+    beforeEach(() => {
+        cy.visit(url).then(() => {
+          basePage.setCookie()
+        })
+      })
 
 	it("Switch ZH language", () => {
 		navbar.switchlanguageZh()
