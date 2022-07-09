@@ -37,7 +37,7 @@ describe('Search tests', () => {
   it('special chars', () => {
     navbar.search('%')
     cy.get(searchPage.searchResultItems).should('have.length', 0)
-    navbar.search('+') // 1 space
+    navbar.search('+')
     cy.get(searchPage.noResultsFoundDiv).should('be.visible')
   })
 })
