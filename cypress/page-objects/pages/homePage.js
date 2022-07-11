@@ -7,7 +7,7 @@ export default class HomePage extends BasePage {
 
   // Page Object Methods
   clickOnLogo() {
-    cy.get('.chr-header__link-site  svg').click()
+    cy.get(this.logo).click()
   }
 
   search(text) {
