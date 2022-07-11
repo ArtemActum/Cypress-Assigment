@@ -1,0 +1,11 @@
+**/.projects
+**/*.d.ts
+**/package-lock.json
+**/tsconfig.json
+**/.vscode
+**/.history
+**/.cy
+**/.git
+**/1-getting-started/*
+**/2-advanced-examples/*
+**/*.config.ts
