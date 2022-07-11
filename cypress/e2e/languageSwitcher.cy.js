@@ -1,28 +1,23 @@
-import BasePage from "../page-objects/basePage"
-import Navbar from "../page-objects/components/navbar"
-import LoginPage from "../page-objects/pages/loginPage"
-import { url, login_password, login_username } from "/config"
+import HomePage from '../page-objects/pages/homePage'
 
-describe("Language Switcher Functionality", () => {
-	const loginPage = new LoginPage()
-	const navbar = new Navbar()
-	const basePage = new BasePage()
+describe('Language Switcher Functionality', () => {
+  const homePage = new HomePage()
 
-    beforeEach(() => {
-        cy.visit(url).then(() => {
-          basePage.setCookie()
-        })
-      })
+  beforeEach(() => {
+    cy.visit('/').then(() => {
+      homePage.setCookie()
+    })
+  })
 
-	it("Switch ZH language", () => {
-		navbar.switchlanguageZh()
-	})
+  it('Switch ZH language', () => {
+    homePage.switchlanguageZh()
+  })
 
-	it("Switch Zh-Cn language", () => {
-		navbar.switchlanguageZhCn()
-	})
+  it('Switch Zh-Cn language', () => {
+    homePage.switchlanguageZhCn()
+  })
 
-	it("Switch En language", () => {
-		navbar.switchlanguageEn()
-	})
+  it('Switch En language', () => {
+    homePage.switchlanguageEn()
+  })
 })

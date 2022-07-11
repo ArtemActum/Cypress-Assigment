@@ -1,27 +1,23 @@
-import { url, login_password, login_username } from '/config'
-import LoginPage from '../page-objects/pages/loginPage'
-import Navbar from '../page-objects/components/navbar'
-import BasePage from '../page-objects/basePage'
+import { login_password, login_username } from '/config'
+import HomePage from '../page-objects/pages/homePage'
 
 describe('Login Functionality Tests', () => {
-  const loginPage = new LoginPage()
-  const navbar = new Navbar()
-  const basePage = new BasePage()
+  const homePage = new HomePage()
 
   beforeEach(() => {
-    cy.visit(url).then(() => {
-      basePage.setCookie()
+    cy.visit('/').then(() => {
+      homePage.setCookie()
     })
   })
 
-  it('login into application', () => {
-    loginPage.login(login_username, login_password)
-    navbar.myAccount()
-    cy.url().should('include', '/mychristies/activities')
-  })
+    it('login into application', () => {
+      homePage.login(login_username, login_password)
+      homePage.myAccount()
+      cy.url().should('include', '/mychristies/activities')
+    })
 
   it('should try to login with invalid credentials', () => {
-    loginPage.login('invalid username', 'invalid password')
-    loginPage.displayErrorMessage()
+    homePage.login('invalid username', 'invalid password')
+    homePage.displayErrorMessage().should('be.visible').and('contain.text', 'The email address and password that you entered did not match our records.')
   })
 })
