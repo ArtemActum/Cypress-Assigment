@@ -1,8 +1,8 @@
-import BasePage from '../../page-objects/basePage'
-import Navbar from '../../page-objects/components/navbar'
-import LoginPage from '../../page-objects/pages/loginPage'
+import BasePage from '../page-objects/basePage'
+import Navbar from '../page-objects/components/navbar'
+import LoginPage from '../page-objects/pages/loginPage'
 import { url, login_password, login_username } from '/config'
-import SearchPage from '../../page-objects/pages/searchPage'
+import SearchPage from '../page-objects/pages/searchPage'
 
 describe('Search tests', () => {
   const loginPage = new LoginPage()

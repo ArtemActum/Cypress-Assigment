@@ -1,6 +1,6 @@
-import BasePage from "../../page-objects/basePage"
-import Navbar from "../../page-objects/components/navbar"
-import LoginPage from "../../page-objects/pages/loginPage"
+import BasePage from "../page-objects/basePage"
+import Navbar from "../page-objects/components/navbar"
+import LoginPage from "../page-objects/pages/loginPage"
 import { url, login_password, login_username } from "/config"
 
 describe("Language Switcher Functionality", () => {

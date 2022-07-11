@@ -1,7 +1,7 @@
 import { url, login_password, login_username } from '/config'
-import LoginPage from '../../page-objects/pages/loginPage'
-import Navbar from '../../page-objects/components/navbar'
-import BasePage from '../../page-objects/basePage'
+import LoginPage from '../page-objects/pages/loginPage'
+import Navbar from '../page-objects/components/navbar'
+import BasePage from '../page-objects/basePage'
 
 describe('Login Functionality Tests', () => {
   const loginPage = new LoginPage()
