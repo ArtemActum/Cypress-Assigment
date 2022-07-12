@@ -20,7 +20,7 @@ describe('Search tests', () => {
   it('check if search is not case sensitive', () => {
     homePage.search('raLstOn CraWfOrd')
     cy.get(searchPage.soldLots).click()
-    cy.get('.chr-lot-tile__link')
+    cy.get(searchPage.nameOfLot)
       .should('be.visible')
       .and('contain.text', 'Ralston Crawford')
   })
