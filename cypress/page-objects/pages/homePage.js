@@ -6,11 +6,4 @@ export default class HomePage extends BasePage {
   signIn = '.chr-header__user-zone .chr-button__text'
 
   // Page Object Methods
-  clickOnLogo() {
-    cy.get(this.logo).click()
-  }
-
-  search(text) {
-    cy.get('#site-search').type(`${text} {enter}`)
-  }
 }

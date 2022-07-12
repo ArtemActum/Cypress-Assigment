@@ -24,7 +24,8 @@ export default class BasePage {
     'header .chr-button.chr-button--icon.chr-button--lg.chr-button--light.chr-button--icon-left'
   ErrorMessage =
     '.align-items-center.d-inline-flex.mb-5 > .chr-color-red-alert.chr-label.content-zone'
-  magnifyingGlass = "form[role='search']  .hydrated > .chr-button.chr-button--icon.chr-button--icon-left.chr-button--lg.chr-button--light > .hydrated  .chr-icon.chr-icon--sm"
+  magnifyingGlass =
+    "form[role='search']  .hydrated > .chr-button.chr-button--icon.chr-button--icon-left.chr-button--lg.chr-button--light > .hydrated  .chr-icon.chr-icon--sm"
 
   // Page Object Methods
 
@@ -55,29 +56,6 @@ export default class BasePage {
   searchWithMagnifyingGlass(text) {
     cy.get(this.searchInput).type(`${text}`)
     cy.get(this.magnifyingGlass).click()
-  }
-
-  displaySignInButton() {
-    cy.isVisible('')
-  }
-
-  clickSignIn() {
-    cy.get(
-      '.hydrated > .chr-button.chr-button--light.chr-button--primary.chr-button--sm',
-    ).click()
-  }
-
-  clickSettings() {
-    cy.contains('Settings').click()
-  }
-
-  logout() {
-    cy.get(
-      'chr-button[aria-label="User navigation"] > .chr-button > .hydrated > .chr-icon__wrapper > .chr-icon',
-    ).click()
-    cy.get(
-      '.chr-user-nav__list > :nth-child(2) > .hydrated > .chr-button > .chr-button__text',
-    ).click()
   }
 
   switchlanguageZh() {
