@@ -12,13 +12,13 @@ describe('Search tests', () => {
   })
 
   it('check if search is working', () => {
-    homePage.search('Test')
+    homePage.addTextToSearchInput('Test')
     cy.url().should('include', 'Test')
     cy.get(searchPage.searchResultItems).should('have.length.at.least', 1)
   })
 
   it('check if search is not case sensitive', () => {
-    homePage.search('raLstOn CraWfOrd')
+    homePage.addTextToSearchInput('raLstOn CraWfOrd')
     cy.get(searchPage.soldLots).click()
     cy.get(searchPage.nameOfLot)
       .should('be.visible')
@@ -31,9 +31,9 @@ describe('Search tests', () => {
   })
 
   it('special chars', () => {
-    homePage.search('%')
+    homePage.addTextToSearchInput('%')
     cy.get(searchPage.searchResultItems).should('have.length', 0)
-    homePage.search('+')
+    homePage.addTextToSearchInput('+')
     cy.get(searchPage.noResultsFoundDiv).should('be.visible')
   })
 })
