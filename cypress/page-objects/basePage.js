@@ -49,7 +49,7 @@ export default class BasePage {
     cy.get(this.ErrorMessage)
   }
 
-  search(text) {
+  addTextToSearchInput(text) {
     cy.get(this.searchInput).type(`${text} {enter}`)
   }
 
