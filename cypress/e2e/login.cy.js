@@ -1,4 +1,4 @@
-import { login_password, login_username } from '/config'
+import { loginPassword, loginUsername } from '/config'
 import HomePage from '../page-objects/pages/homePage'
 import MyAccount from '../page-objects/pages/myAccountPage'
 
@@ -13,20 +13,14 @@ describe('Login Functionality Tests', () => {
   })
 
   it('login into application', () => {
-    homePage.login(login_username, login_password)
-    homePage.myAccount()
-    cy.get(myAccountPage.nameUser).should('be.visible').and('contain.text', 'Artem M')
+    homePage.login(loginUsername, loginPassword)
+    homePage.clickMyAccount()
+    myAccountPage.checkNameUser()
     cy.url().should('include', '/mychristies/activities')
   })
 
   it('should try to login with invalid credentials', () => {
     homePage.login('invalid username', 'invalid password')
-    homePage
-      .displayErrorMessage()
-      .should('be.visible')
-      .and(
-        'contain.text',
-        'The email address and password that you entered did not match our records.',
-      )
+    homePage.displayErrorMessage()
   })
 })

@@ -1,6 +1,6 @@
 import CalendarPage from '../page-objects/pages/calendarPage'
 import HomePage from '../page-objects/pages/homePage'
-import { login_password, login_username } from '/config'
+import { loginPassword, loginUsername } from '/config'
 
 describe('Language Switcher Functionality', () => {
   const homePage = new HomePage()
@@ -13,34 +13,32 @@ describe('Language Switcher Functionality', () => {
   })
 
   it('Followed filter - ON', () => {
-    calendarPage.loginFromCalendar(login_username, login_password)
-    cy.get(calendarPage.followedBtn).click()
+    calendarPage.loginFromCalendar(loginUsername, loginPassword)
+    calendarPage.clickFollowedFilter()
     cy.url().should('include', 'event_following')
   })
 
   it('check filter', () => {
-    cy.get(calendarPage.learningLecturesBtn).click()
-    cy.get(calendarPage.categorySection).click()
-    cy.get(calendarPage.asianArtBtn).click()
+    calendarPage.clickLearningLecturesBtn()
+    calendarPage.clickCategorySection()
+    calendarPage.clickAsianArtBtn()
     cy.url().should('include', '|event_following|event_4|category_5|')
   })
 
   it('Filter - clear all', () => {
     cy.get(calendarPage.liveBtn).click()
-    cy.get(calendarPage.learningLecturesBtn).click()
-    cy.get(calendarPage.categorySection).click()
-    cy.get(calendarPage.asianArtBtn).click()
+    calendarPage.clickLearningLecturesBtn()
+    calendarPage.clickCategorySection()
+    calendarPage.clickAsianArtBtn()
     cy.url().should('include', '|event_live|event_4|category_5|')
-    cy.get(calendarPage.clearAllBtn).click()
+    calendarPage.clickClearAllBtn()
     cy.url().should('not.include', '|event_live|event_4|category_5|')
   })
 
-  it('Location filter', () => {
-    cy.get(calendarPage.locationSection).click()
-    cy.get(calendarPage.argentinaBtn).click()
-    cy.get(calendarPage.locationOfLot)
-      .contains('Argentina')
-      .should('contain', 'Argentina')
+  it.only('Location filter', () => {
+    calendarPage.clickLocationSection()
+    calendarPage.clickArgentinaBtn()
+    cy.get(calendarPage.locationOfLot).should('contain', 'Argentina')
   })
 
   it('check month of lot', () => {
@@ -53,7 +51,7 @@ describe('Language Switcher Functionality', () => {
   })
 
   it('check type auction of lot', () => {
-    cy.get(calendarPage.onlineBtn).click()
+    calendarPage.clickOnlineBtn()
     cy.get(calendarPage.monthOfLot).should('include.text', 'Online auction')
   })
 })

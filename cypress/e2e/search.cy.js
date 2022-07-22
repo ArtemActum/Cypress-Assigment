@@ -14,20 +14,18 @@ describe('Search tests', () => {
   it('check if search is working', () => {
     homePage.addTextToSearchInput('Test')
     cy.url().should('include', 'Test')
-    cy.get(searchPage.searchResultItems).should('have.length.at.least', 1)
+    searchPage.checkSearchResultItems()
   })
 
   it('check if search is not case sensitive', () => {
     homePage.addTextToSearchInput('raLstOn CraWfOrd')
-    cy.get(searchPage.soldLots).click()
-    cy.get(searchPage.nameOfLot)
-      .should('be.visible')
-      .and('contain.text', 'Ralston Crawford')
+    searchPage.clickSoldLots()
+    searchPage.checkNameOfLot()
   })
 
   it('check if magnifying glass is working', () => {
     homePage.searchWithMagnifyingGlass('Test')
-    cy.get(searchPage.searchResultItems).should('have.length.at.least', 1)
+    searchPage.checkSearchResultItems()
   })
 
   it('special chars', () => {
