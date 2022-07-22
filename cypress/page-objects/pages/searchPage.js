@@ -10,4 +10,22 @@ export default class searchPage extends BasePage {
   nameOfLot = '.chr-lot-tile__link'
 
   // Page Object Methods
+
+  checkSearchResultItems() {
+    cy.get(this.searchResultItems).should('have.length.at.least', 1)
+  }
+
+  clickSoldLots() {
+    cy.get(this.soldLots).click()
+  }
+
+  checkNameOfLot() {
+    cy.get(this.nameOfLot)
+      .should('be.visible')
+      .and('contain.text', 'Ralston Crawford')
+  }
+
+  checkSearchResultItems() {
+    cy.get(this.searchResultItems).should('have.length.at.least', 1)
+  }
 }
