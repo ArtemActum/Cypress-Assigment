@@ -12,11 +12,13 @@
 // You can read more here:
 // https://on.cypress.io/configuration
 // ***********************************************************
-Cypress.on('uncaught:exception', (err, runnable) => {
-  // returning false here prevents Cypress from
-  // failing the test
-  return false
-})
+
+// Cypress.on('uncaught:exception', (err, runnable) => {
+//   // returning false here prevents Cypress from
+//   // failing the test
+//   return false
+// })
+
 // Import commands.js using ES2015 syntax:
 import './commands'
 
