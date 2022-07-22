@@ -35,4 +35,36 @@ export default class CalendarPage extends BasePage {
     cy.get(this.passwdInput).type(password)
     cy.get(this.signInBtn).click()
   }
+
+  clickFollowedFilter() {
+    cy.get(this.followedBtn).click()
+  }
+
+  clickLearningLecturesBtn() {
+    cy.get(this.learningLecturesBtn).click()
+  }
+
+  clickCategorySection() {
+    cy.get(this.categorySection).click()
+  }
+
+  clickAsianArtBtn() {
+    cy.get(this.asianArtBtn).click()
+  }
+
+  clickClearAllBtn() {
+    cy.get(this.clearAllBtn).click()
+  }
+
+  clickLocationSection() {
+    cy.get(this.locationSection).click()
+  }
+
+  clickArgentinaBtn() {
+    cy.get(this.argentinaBtn).click()
+  }
+
+  clickOnlineBtn() {
+    cy.get(this.onlineBtn).click()
+  }
 }

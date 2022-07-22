@@ -51,19 +51,32 @@ export default class MyAccount extends BasePage {
   }
 
   clickBuying() {
-    cy.get(this.buyingBtn).click()
+    cy.get(this.buyingBtn).should('contain.text', 'Buying').click()
+    cy.url().should('include', 'ua&submenuTapped')
   }
 
   clickSelling() {
     cy.get(this.sellingBtn).click()
+    cy.url().should('include', 'active&submenuTapped')
   }
 
   clickInterests() {
     cy.get(this.interestsBtn).click()
+    cy.url().should('include', 'pc&submenuTapped')
   }
 
   clickSettings() {
     cy.get(this.settingsBtn).click()
+  }
+
+  clickViewAuctionCalendarBtn() {
+    cy.get(this.viewAuctionCalendarBtn).click()
+    cy.url().should('include', 'calendar')
+  }
+
+  selectDollarCurrency() {
+    cy.get(this.currencySelector).select('U.S. Dollars')
+    cy.get(this.currencySelector).should('have.value', 'USD')
   }
 
   addNewAddress(city, postalCode, address) {
@@ -76,5 +89,26 @@ export default class MyAccount extends BasePage {
     cy.get(this.saveBtn).click()
   }
 
-  
+  clickCompleteProfileBtn() {
+    cy.get(this.completeProfileBtn).click()
+    cy.url().should('include', 'confirm-details')
+  }
+
+  clickEditAddressBookBtn() {
+    cy.get(this.editAddressBookBtn).click()
+  }
+
+  clickAddNewAddressBtn() {
+    cy.get(this.addNewAddressBtn).click()
+  }
+
+  selectCZCountryInput() {
+    cy.get(this.countryInput).select('Czech Republic')
+    cy.get(this.countryInput).should('have.value', 'CZ|Czech Republic|57')
+  }
+
+  clickOkayBtn() {
+    cy.get(this.okayBtn).click()
+    cy.get(this.actualAdrress).should('have.text', 'Argentinska')
+  }
 }

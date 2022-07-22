@@ -3,8 +3,7 @@ export default class BasePage {
   tradChineseLink = '[lang="zh"]'
   simpleChineseLink = '[lang="zh-cn"]'
   englishLink = '[lang="en"]'
-  loginBtn =
-    '.chr-button.chr-button--light.chr-button--primary.chr-button--sm > .chr-button__text'
+  loginBtn = '.chr-header__user-zone .chr-button__text'
   myAccountBtn =
     '.chr-button.chr-button--link.chr-button--lg.chr-button--light.chr-button--icon-left'
   forgottenLink = '.chr-modal .chr-body.chr-link--underline'
@@ -47,6 +46,11 @@ export default class BasePage {
 
   displayErrorMessage() {
     cy.get(this.ErrorMessage)
+      .should('be.visible')
+      .and(
+        'contain.text',
+        'The email address and password that you entered did not match our records.',
+      )
   }
 
   addTextToSearchInput(text) {
@@ -74,7 +78,11 @@ export default class BasePage {
     cy.url().should('include', 'sc_lang=en')
   }
 
-  myAccount() {
+  clickMyAccount() {
     cy.get(this.myAccountBtn).click()
+  }
+
+  checkNameUser() {
+    cy.get(this.nameUser).should('be.visible').and('contain.text', 'Artem M')
   }
 }
