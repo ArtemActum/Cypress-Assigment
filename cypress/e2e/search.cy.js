@@ -14,7 +14,7 @@ describe('Search tests', () => {
   it('check if search is working', () => {
     homePage.addTextToSearchInput('Test')
     cy.url().should('include', 'Test')
-    searchPage.checkSearchResultItems()
+    searchPage.checkSearchResultItems().should('have.length.at.least', 1)
   })
 
   it('check if search is not case sensitive', () => {

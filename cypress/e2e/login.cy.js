@@ -21,6 +21,12 @@ describe('Login Functionality Tests', () => {
 
   it('should try to login with invalid credentials', () => {
     homePage.login('invalid username', 'invalid password')
-    homePage.displayErrorMessage()
+    homePage
+      .displayErrorMessage()
+      .should('be.visible')
+      .and(
+        'contain.text',
+        'The email address and password that you entered did not match our records.',
+      )
   })
 })
