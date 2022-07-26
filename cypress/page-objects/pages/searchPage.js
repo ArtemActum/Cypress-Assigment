@@ -12,7 +12,7 @@ export default class searchPage extends BasePage {
   // Page Object Methods
 
   checkSearchResultItems() {
-    cy.get(this.searchResultItems).should('have.length.at.least', 1)
+    cy.get(this.searchResultItems)
   }
 
   clickSoldLots() {

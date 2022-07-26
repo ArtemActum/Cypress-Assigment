@@ -46,11 +46,6 @@ export default class BasePage {
 
   displayErrorMessage() {
     cy.get(this.ErrorMessage)
-      .should('be.visible')
-      .and(
-        'contain.text',
-        'The email address and password that you entered did not match our records.',
-      )
   }
 
   addTextToSearchInput(text) {

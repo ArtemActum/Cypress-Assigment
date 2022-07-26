@@ -51,18 +51,15 @@ export default class MyAccount extends BasePage {
   }
 
   clickBuying() {
-    cy.get(this.buyingBtn).should('contain.text', 'Buying').click()
-    cy.url().should('include', 'ua&submenuTapped')
+    cy.get(this.buyingBtn).click()
   }
 
   clickSelling() {
     cy.get(this.sellingBtn).click()
-    cy.url().should('include', 'active&submenuTapped')
   }
 
   clickInterests() {
     cy.get(this.interestsBtn).click()
-    cy.url().should('include', 'pc&submenuTapped')
   }
 
   clickSettings() {
@@ -76,7 +73,6 @@ export default class MyAccount extends BasePage {
 
   selectDollarCurrency() {
     cy.get(this.currencySelector).select('U.S. Dollars')
-    cy.get(this.currencySelector).should('have.value', 'USD')
   }
 
   addNewAddress(city, postalCode, address) {
@@ -87,11 +83,6 @@ export default class MyAccount extends BasePage {
     cy.get(this.provinceInput).type(city)
     cy.get(this.postalCodeInput).type(postalCode)
     cy.get(this.saveBtn).click()
-  }
-
-  clickCompleteProfileBtn() {
-    cy.get(this.completeProfileBtn).click()
-    cy.url().should('include', 'confirm-details')
   }
 
   clickEditAddressBookBtn() {
@@ -109,6 +100,5 @@ export default class MyAccount extends BasePage {
 
   clickOkayBtn() {
     cy.get(this.okayBtn).click()
-    cy.get(this.actualAdrress).should('have.text', 'Argentinska')
   }
 }
