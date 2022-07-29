@@ -9,9 +9,13 @@
     "cy:run:chrome": "cypress run --browser chrome",
     "cy:run:firefox": "cypress run --browser firefox"
   },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^11.5.1",
     "prettier": "^2.7.1"
   },
   "devDependencies": {
@@ -19,6 +23,7 @@
     "@types/node": "^18.0.0",
     "chai-style": "^1.0.3",
     "cypress": "^10.3.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
     "esbuild": "^0.14.50",
     "eslint": "^8.20.0",
     "eslint-config-google": "^0.14.0",
