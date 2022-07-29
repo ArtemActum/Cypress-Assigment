@@ -5,6 +5,7 @@ import {
   address,
   postalCode,
 } from '/config'
+
 import HomePage from '../page-objects/pages/homePage'
 import MyAccount from '../page-objects/pages/myAccountPage'
 
@@ -20,7 +21,7 @@ describe('MyAccount Functionality Tests', () => {
     homePage.clickMyAccount()
   })
 
-  it.only('check sections functionality', () => {
+  it('check sections functionality', () => {
     myAccountPage.clickBuying()
     cy.url().should('include', 'ua&submenuTapped')
     myAccountPage.clickSelling()
@@ -41,17 +42,24 @@ describe('MyAccount Functionality Tests', () => {
   it('should select Dollar currency from select box in setting details', () => {
     myAccountPage.clickSettings()
     cy.url().should('include', 'as&submenuTapped')
-    myAccountPage.selectDollarCurrency()
-    cy.get(myAccountPage.currencySelector).should('have.value', 'USD')
+    myAccountPage.selectDollarCurrency().should('have.value', 'USD')
   })
 
-  it('Add new address to address book', () => {
-    myAccountPage.clickSettings()
-    myAccountPage.clickEditAddressBookBtn()
-    myAccountPage.clickAddNewAddressBtn()
-    myAccountPage.selectCZCountryInput()
-    myAccountPage.addNewAddress()
-    myAccountPage.clickOkayBtn()
-    cy.get(myAccountPage.actualAdrress).should('have.text', 'Argentinska')
+  it('Add new CZ address to address book', () => {
+    myAccountPage.navigateToAddressBookForm()
+    myAccountPage.addNewCZAddress()
+    myAccountPage.deleteCZAddress()
+  })
+
+  it('Add new UK address to address book', () => {
+    myAccountPage.navigateToAddressBookForm()
+    myAccountPage.addNewUKAddress()
+    myAccountPage.deleteUKAddress()
+  })
+
+  it.only('Add new USA address to address book', () => {
+    myAccountPage.navigateToAddressBookForm()
+    myAccountPage.addNewUSAAddress()
+    myAccountPage.deleteUSAAddress()
   })
 })

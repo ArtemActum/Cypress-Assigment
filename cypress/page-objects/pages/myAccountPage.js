@@ -1,4 +1,11 @@
 import BasePage from '../basePage'
+import {
+  loginPassword,
+  loginUsername,
+  city,
+  address,
+  postalCode,
+} from '/config'
 
 export default class MyAccount extends BasePage {
   // Elements
@@ -27,10 +34,9 @@ export default class MyAccount extends BasePage {
     '.chr-button.chr-button--light.chr-button--primary.chr-button--sm'
   completeProfileBtn =
     '.chr-body-s.chr-color-white.chr-link--dark.chr-link--underline'
-  editAddressBookBtn =
-    'div#Account Settings > .chr-button.chr-button--icon.chr-button--icon-left.chr-button--icon-xs.chr-button--lg.chr-button--light.p-0  .chr-label-medium'
-  addNewAddressBtn =
-    '.chr-button chr-button--secondary chr-button--lg chr-button--light chr-button--full-width chr-button--icon-left chr-button--icon-xs'
+  editAddressBookBtn = "[data-modal-id='addressBookModal'] .chr-label-medium"
+
+  addNewAddressBtn = '#lnkAdd'
   countryInput = '#ddlCountry'
   buildingNameInput =
     "#tAddressBook [class='mb-5']:nth-of-type(3) .chr-text-input__field"
@@ -39,11 +45,22 @@ export default class MyAccount extends BasePage {
   address3Input =
     "#tAddressBook [class='mb-5']:nth-of-type(5) .chr-text-input__field"
   cityInput = '#txtCity'
-  provinceInput = '#txtProvince'
+  provinceUKInput = '#ddlProvince'
+  //provinceCZInput = '#ddlProvince'
   postalCodeInput = '#txtPostalCode'
   saveBtn = '#btnSaveAddress'
   okayBtn = '#confirmationModal .chr-button--full-width'
   actualAdrress = '.catalogueAddress [selected]'
+  adsressSelector = '#ctl00_MainContent_ddlCatalogueMailingAdress'
+  adressBookInput = '#ddlAddress'
+  deleteBtn = '#btnDeleteAddress'
+  deleteConfirmationBtn = '#btnDelDelete'
+  closeBtn =
+    "#confirmationModal [class='chr-button chr-button--primary chr-button--lg chr-button--light chr-button--full-width btnClose mt-2']"
+
+  citySelector = '#ddlUScity'
+  countySelector = '#ddlUSCounty'
+  postalCodeUSAInput = '#txtUSzip'
   // Page Object Methods
 
   logout() {
@@ -75,16 +92,74 @@ export default class MyAccount extends BasePage {
     cy.get(this.currencySelector).select('U.S. Dollars')
   }
 
-  addNewAddress(city, postalCode, address) {
-    cy.get(this.buildingNameInput).type(address)
-    cy.get(this.address2Input).type(address)
-    cy.get(this.address3Input).type(address)
-    cy.get(this.cityInput).type(city)
-    cy.get(this.provinceInput).type(city)
-    cy.get(this.postalCodeInput).type(postalCode)
+  addNewCZAddress() {
+    this.selectCZCountryInput()
+    cy.get(this.buildingNameInput).type('Argentinska')
+    cy.get(this.address2Input).type('Argentinska')
+    cy.get(this.address3Input).type('Argentinska')
+    cy.get(this.cityInput).type('Prague')
+    //cy.get(this.provinceCZInput).type('Prague')
+    cy.get(this.postalCodeInput).type('10600')
     cy.get(this.saveBtn).click()
+    this.clickOkayBtn()
+    cy.get(this.adsressSelector).select('Argentinska')
+    cy.get(this.adsressSelector).should('contain.text', 'Argentinska')
   }
 
+  deleteCZAddress() {
+    cy.get(this.adsressSelector).select(0)
+    this.clickEditAddressBookBtn()
+    cy.get(this.adressBookInput).select('Argentinska')
+    cy.get(this.deleteBtn).click()
+    cy.get(this.deleteConfirmationBtn).click()
+    cy.get(this.closeBtn).click()
+    cy.get(this.adressBookInput).should('not.contain.text', 'Argentinska')
+  }
+
+  addNewUKAddress() {
+    cy.get(this.countryInput).select(1)
+    cy.get(this.countryInput).should('have.value', 'GB|United Kingdom|2')
+    cy.get(this.buildingNameInput).type('Kensington')
+    cy.get(this.cityInput).type('London')
+    cy.get(this.provinceUKInput).select(2).should('contain.text', 'Angus')
+    cy.get(this.postalCodeInput).type('W8 4QY')
+    cy.get(this.saveBtn).click()
+    this.clickOkayBtn()
+    cy.get(this.adsressSelector).select('Kensington')
+    cy.get(this.adsressSelector).should('contain.text', 'Kensington')
+  }
+
+  deleteUKAddress() {
+    cy.get(this.adsressSelector).select(0)
+    this.clickEditAddressBookBtn()
+    cy.get(this.adressBookInput).select('Kensington')
+    cy.get(this.deleteBtn).click()
+    cy.get(this.deleteConfirmationBtn).click()
+    cy.get(this.closeBtn).click()
+    cy.get(this.adressBookInput).should('not.contain.text', 'Kensington')
+  }
+
+  addNewUSAAddress() {
+    cy.get(this.countryInput).select(2).should('have.value', 'US|USA|1')
+    cy.get(this.buildingNameInput).type('Newport')
+    cy.get(this.postalCodeUSAInput).type('02840')
+    cy.get(this.citySelector).select('Newport')
+    cy.get(this.countySelector).select('Newport')
+    cy.get(this.saveBtn).click()
+    this.clickOkayBtn()
+    cy.get(this.adsressSelector).select('Newport')
+    cy.get(this.adsressSelector).should('contain.text', 'Newport')
+  }
+
+  deleteUSAAddress() {
+    cy.get(this.adsressSelector).select(0)
+    this.clickEditAddressBookBtn()
+    cy.get(this.adressBookInput).select('Newport')
+    cy.get(this.deleteBtn).click()
+    cy.get(this.deleteConfirmationBtn).click()
+    cy.get(this.closeBtn).click()
+    cy.get(this.adressBookInput).should('not.contain.text', 'Newport')
+  }
   clickEditAddressBookBtn() {
     cy.get(this.editAddressBookBtn).click()
   }
@@ -100,5 +175,11 @@ export default class MyAccount extends BasePage {
 
   clickOkayBtn() {
     cy.get(this.okayBtn).click()
+  }
+
+  navigateToAddressBookForm() {
+    this.clickSettings()
+    this.clickEditAddressBookBtn()
+    this.clickAddNewAddressBtn()
   }
 }
