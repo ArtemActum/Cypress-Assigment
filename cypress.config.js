@@ -1,5 +1,21 @@
 const { defineConfig } = require('cypress')
-// const cucumber = require('cypress-cucumber-preprocessor').default
+const createBundler = require('@bahmutov/cypress-esbuild-preprocessor')
+const preprocessor = require('@badeball/cypress-cucumber-preprocessor')
+const createEsbuildPlugin = require('@badeball/cypress-cucumber-preprocessor/esbuild')
+
+async function setupNodeEvents(on, config) {
+  await preprocessor.addCucumberPreprocessorPlugin(on, config)
+
+  on(
+    'file:preprocessor',
+    createBundler({
+      plugins: [createEsbuildPlugin.default(config)],
+    }),
+  )
+
+  // Make sure to return the config object as it might have been modified by the plugin.
+  return config
+}
 
 module.exports = defineConfig({
   e2e: {
@@ -7,13 +23,9 @@ module.exports = defineConfig({
     defaultCommandTimeout: 15000,
     viewportWidth: 1920,
     viewportHeight: 1080,
-    specPattern: ['**/*.feature', 'cypress/e2e/**/*.cy.{js,ts,tsx}'],
     blockHosts: ['static.srcspot.com'],
-    // We've imported your old cypress plugins here.
-    // You may want to clean this up later by importing these.
-    setupNodeEvents(on, config) {
-      // on('file:preprocessor', cucumber())
-      return require('./cypress/plugins/index.js')(on, config)
-    },
+    specPattern: ['**/*.cy.js', '**/*.feature'],
+    supportFile: false,
+    setupNodeEvents,
   },
 })
