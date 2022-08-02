@@ -1,6 +1,5 @@
 import CalendarPage from '../page-objects/pages/calendarPage'
 import HomePage from '../page-objects/pages/homePage'
-import { loginPassword, loginUsername } from '/config'
 
 describe('Language Switcher Functionality', () => {
   const homePage = new HomePage()
@@ -13,7 +12,7 @@ describe('Language Switcher Functionality', () => {
   })
 
   it('Followed filter - ON', () => {
-    calendarPage.loginFromCalendar(loginUsername, loginPassword)
+    calendarPage.loginFromCalendar()
     calendarPage.clickFollowedFilter()
     cy.url().should('include', 'event_following')
   })
@@ -35,23 +34,19 @@ describe('Language Switcher Functionality', () => {
     cy.url().should('not.include', '|event_live|event_4|category_5|')
   })
 
-  it.only('Location filter', () => {
+  it('Location filter', () => {
     calendarPage.clickLocationSection()
     calendarPage.clickArgentinaBtn()
-    cy.get(calendarPage.locationOfLot).should('contain', 'Argentina')
+    calendarPage.checkLocationOfLot()
   })
 
   it('check month of lot', () => {
-    cy.get(calendarPage.augustSection).click()
-    cy.get(calendarPage.monthOfLot).should('include.text', 'August')
-  })
-
-  it('check Clear all button', () => {
-    cy.get(calendarPage.clearAllBtn).should('be.visible')
+    calendarPage.clickAugustSection()
+    calendarPage.checkMonthOfLot()
   })
 
   it('check type auction of lot', () => {
     calendarPage.clickOnlineBtn()
-    cy.get(calendarPage.monthOfLot).should('include.text', 'Online auction')
+    calendarPage.checkTypeOfLot()
   })
 })

@@ -28,10 +28,10 @@ describe('Search tests', () => {
     searchPage.checkSearchResultItems()
   })
 
-  it('special chars', () => {
+  it('check if special chars does not work', () => {
     homePage.addTextToSearchInput('%')
-    cy.get(searchPage.searchResultItems).should('have.length', 0)
+    searchPage.searchResultItems().should('have.length', 0)
     homePage.addTextToSearchInput('+')
-    cy.get(searchPage.noResultsFoundDiv).should('be.visible')
+    searchPage.searchResultItems().should('be.visible')
   })
 })

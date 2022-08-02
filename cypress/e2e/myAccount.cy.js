@@ -1,11 +1,3 @@
-import {
-  loginPassword,
-  loginUsername,
-  city,
-  address,
-  postalCode,
-} from '/config'
-
 import HomePage from '../page-objects/pages/homePage'
 import MyAccount from '../page-objects/pages/myAccountPage'
 
@@ -17,7 +9,7 @@ describe('MyAccount Functionality Tests', () => {
     cy.visit('/').then(() => {
       homePage.setCookie()
     })
-    homePage.login(loginUsername, loginPassword)
+    homePage.login()
     homePage.clickMyAccount()
   })
 
