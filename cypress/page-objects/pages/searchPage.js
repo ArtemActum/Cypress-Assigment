@@ -24,8 +24,4 @@ export default class searchPage extends BasePage {
       .should('be.visible')
       .and('contain.text', 'Ralston Crawford')
   }
-
-  checkSearchResultItems() {
-    cy.get(this.searchResultItems).should('have.length.at.least', 1)
-  }
 }

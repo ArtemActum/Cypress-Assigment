@@ -1,5 +1,6 @@
 export default class BasePage {
   // Elements
+
   tradChineseLink = '[lang="zh"]'
   simpleChineseLink = '[lang="zh-cn"]'
   englishLink = '[lang="en"]'
@@ -25,7 +26,7 @@ export default class BasePage {
     '.align-items-center.d-inline-flex.mb-5 > .chr-color-red-alert.chr-label.content-zone'
   magnifyingGlass =
     "form[role='search']  .hydrated > .chr-button.chr-button--icon.chr-button--icon-left.chr-button--lg.chr-button--light > .hydrated  .chr-icon.chr-icon--sm"
-
+  nameUser = '#ctl00_lblUser'
   // Page Object Methods
 
   setCookie() {
@@ -37,10 +38,23 @@ export default class BasePage {
     })
   }
 
-  login(username, password) {
+  login(
+    loginUsername = 'artemminsadyrov@seznam.cz',
+    loginPassword = 'Zaqxsw111',
+  ) {
     cy.get(this.loginBtn).click()
-    cy.get(this.userInput).click().type(username)
-    cy.get(this.passwdInput).type(password)
+    cy.get(this.userInput).click().type(loginUsername)
+    cy.get(this.passwdInput).type(loginPassword)
+    cy.get(this.signInBtn).click()
+  }
+
+  invalidlogin(
+    loginUsername = 'invalid username',
+    loginPassword = 'invalid password',
+  ) {
+    cy.get(this.loginBtn).click()
+    cy.get(this.userInput).click().type(loginUsername)
+    cy.get(this.passwdInput).type(loginPassword)
     cy.get(this.signInBtn).click()
   }
 
@@ -66,6 +80,7 @@ export default class BasePage {
     cy.get(this.simpleChineseLink).click()
     cy.url().should('include', 'lang=zh-cn')
   }
+  langAttrZhCnlang = 'lang=zh-cn'
 
   switchlanguageEn() {
     cy.get(this.tradChineseLink).click()
@@ -75,9 +90,5 @@ export default class BasePage {
 
   clickMyAccount() {
     cy.get(this.myAccountBtn).click()
-  }
-
-  checkNameUser() {
-    cy.get(this.nameUser).should('be.visible').and('contain.text', 'Artem M')
   }
 }

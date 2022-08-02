@@ -29,7 +29,10 @@ export default class CalendarPage extends BasePage {
   onlineBtn = ''
 
   // Page Object Methods
-  loginFromCalendar(username, password) {
+  loginFromCalendar(
+    username = 'artemminsadyrov@seznam.cz',
+    password = 'Zaqxsw111',
+  ) {
     cy.get(this.loginBtn).click()
     cy.get(this.userInput).click().type(username)
     cy.get(this.passwdInput).type(password)
@@ -66,5 +69,20 @@ export default class CalendarPage extends BasePage {
 
   clickOnlineBtn() {
     cy.get(this.onlineBtn).click()
+  }
+
+  checkLocationOfLot() {
+    cy.get(this.locationOfLot).should('contain', 'Argentina')
+  }
+
+  checkMonthOfLot() {
+    cy.get(this.monthOfLot).should('include.text', 'August')
+  }
+  clickAugustSection() {
+    cy.get(this.augustSection).click()
+  }
+
+  checkTypeOfLot() {
+    cy.get(this.monthOfLot).should('include.text', 'Online auction')
   }
 }

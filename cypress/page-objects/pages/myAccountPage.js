@@ -1,11 +1,4 @@
 import BasePage from '../basePage'
-import {
-  loginPassword,
-  loginUsername,
-  city,
-  address,
-  postalCode,
-} from '/config'
 
 export default class MyAccount extends BasePage {
   // Elements
@@ -98,7 +91,6 @@ export default class MyAccount extends BasePage {
     cy.get(this.address2Input).type('Argentinska')
     cy.get(this.address3Input).type('Argentinska')
     cy.get(this.cityInput).type('Prague')
-    //cy.get(this.provinceCZInput).type('Prague')
     cy.get(this.postalCodeInput).type('10600')
     cy.get(this.saveBtn).click()
     this.clickOkayBtn()
@@ -181,5 +173,9 @@ export default class MyAccount extends BasePage {
     this.clickSettings()
     this.clickEditAddressBookBtn()
     this.clickAddNewAddressBtn()
+  }
+
+  checkNameUser() {
+    cy.get(this.nameUser).should('be.visible').and('contain.text', 'Artem M')
   }
 }
