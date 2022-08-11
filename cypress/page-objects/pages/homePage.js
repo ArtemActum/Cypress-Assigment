@@ -6,4 +6,7 @@ export default class HomePage extends BasePage {
   signIn = '.chr-header__user-zone .chr-button__text'
 
   // Page Object Methods
+  //   open(path = '/') {
+  //     cy.open(path)
+  //   }
 }

@@ -24,6 +24,7 @@ export default class CalendarPage extends BasePage {
   signInBtn = 'button[type="submit"]'
   locationOfLot = '.d-flex > .chr-label-s'
   augustSection = "div[role='tablist'] > button:nth-of-type(4)"
+  octoberSection = "div[role='tablist'] > button:nth-of-type(5)"
   monthOfLot =
     'li:nth-of-type(1) > .hydrated .chr-heading-xs-sans > span:nth-of-type(2) > span'
   onlineBtn = ''
@@ -76,13 +77,21 @@ export default class CalendarPage extends BasePage {
   }
 
   checkMonthOfLot() {
-    cy.get(this.monthOfLot).should('include.text', 'August')
+    cy.get(this.monthOfLot).should('include.text', 'October')
   }
   clickAugustSection() {
     cy.get(this.augustSection).click()
   }
 
+  clickOctoberSection() {
+    cy.get(this.octoberSection).click()
+  }
+
   checkTypeOfLot() {
     cy.get(this.monthOfLot).should('include.text', 'Online auction')
+  }
+
+  clickLiveBtn() {
+    cy.get(this.liveBtn).click()
   }
 }

@@ -29,6 +29,12 @@ export default class BasePage {
   nameUser = '#ctl00_lblUser'
   // Page Object Methods
 
+  // open(path) {
+  //   cy.visit(path).then(() => {
+  //     cy.setCookies()
+  //   })
+  // }
+
   setCookie() {
     const date = new Date().toISOString()
     console.log(window.location)
