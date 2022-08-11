@@ -16,7 +16,7 @@ export default class CalendarPage extends BasePage {
   locationSection =
     '#accordion_2 > .chr-accordion-item__panel > .chr-action > div'
   argentinaBtn =
-    '#sect_2 > [slot="content"] > .chr-filter-block__list > :nth-child(2) > .chr-checkbox > .chr-checkbox__box'
+    '#sect_2 > [slot="content"] > .chr-filter-block__list > :nth-child(1) > .chr-checkbox > .chr-checkbox__box'
   loginBtn =
     '.chr-button.chr-button--light.chr-button--primary.chr-button--sm > .chr-button__text'
   userInput = '#username'
@@ -27,8 +27,10 @@ export default class CalendarPage extends BasePage {
   octoberSection = "div[role='tablist'] > button:nth-of-type(5)"
   monthOfLot =
     'li:nth-of-type(1) > .hydrated .chr-heading-xs-sans > span:nth-of-type(2) > span'
-  onlineBtn = ''
-
+  onlineBtn =
+    '#sect_0 > [slot="content"] > :nth-child(1) > .chr-filter-block__list > :nth-child(2) > .chr-checkbox > .chr-checkbox__box'
+  typeOfLot =
+    ':nth-child(1) > chr-event-tile.hydrated > .container-fluid > .row > .chr-event-tile__details > .chr-event-tile__subtitle'
   // Page Object Methods
   loginFromCalendar(
     username = 'artemminsadyrov@seznam.cz',
@@ -88,7 +90,7 @@ export default class CalendarPage extends BasePage {
   }
 
   checkTypeOfLot() {
-    cy.get(this.monthOfLot).should('include.text', 'Online auction')
+    cy.get(this.typeOfLot).should('contain', 'Online')
   }
 
   clickLiveBtn() {

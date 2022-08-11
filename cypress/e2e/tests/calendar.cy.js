@@ -21,7 +21,7 @@ describe('Language Switcher Functionality', () => {
     calendarPage.clickLearningLecturesBtn()
     calendarPage.clickCategorySection()
     calendarPage.clickAsianArtBtn()
-    cy.url().should('include', '|event_4|category_5|')
+    cy.url().should('include', '|event_6|category_5|')
   })
 
   it('Filter - clear all', () => {
@@ -29,9 +29,9 @@ describe('Language Switcher Functionality', () => {
     calendarPage.clickLearningLecturesBtn()
     calendarPage.clickCategorySection()
     calendarPage.clickAsianArtBtn()
-    cy.url().should('include', '|event_live|event_4|category_5|')
+    cy.url().should('include', '|event_live|event_6|category_5|')
     calendarPage.clickClearAllBtn()
-    cy.url().should('not.include', '|event_live|event_4|category_5|')
+    cy.url().should('not.include', '|event_live|event_6|category_5|')
   })
 
   it('Location filter', () => {
