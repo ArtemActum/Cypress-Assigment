@@ -2,15 +2,12 @@ Feature: Search
 
     Scenario: Check if search is working
         Given I open Home Page.
-        When I add "text" to search input.
-        Then Check search result items.
+        When I add "<text>" to search input.
+        Then Check in url this "<text>".
         Examples:
-            | text |
-            | Test |
+            | text  |
+            | Test  |
+            | Lorem |
 
-    Scenario: Check if special chars does not work
-        Given I open Home Page.
-        When I add special char to search input.
-        Then Check search result items.
 
 
