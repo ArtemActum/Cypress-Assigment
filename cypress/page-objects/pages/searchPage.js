@@ -2,7 +2,7 @@ import BasePage from '../basePage'
 
 export default class searchPage extends BasePage {
   // Elements
-  searchResultItems = 'chr-search-lots-view hydrated'
+  searchResultItems = '.chr-lot-tile'
   noResultsFoundDiv = '.chr-search-results__no-results.container-fluid'
   availableLots = '[data-qa="tab-available_lots"]>span'
   soldLots = 'button#tab-sold_lots > span:nth-of-type(1)'

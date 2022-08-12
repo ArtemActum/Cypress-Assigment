@@ -55,17 +55,20 @@ export default class BasePage {
   }
 
   invalidlogin(
-    loginUsername = 'invalid username',
-    loginPassword = 'invalid password',
+    invalidUsername = 'invalid username',
+    invalidPassword = 'invalid password',
   ) {
     cy.get(this.loginBtn).click()
-    cy.get(this.userInput).click().type(loginUsername)
-    cy.get(this.passwdInput).type(loginPassword)
+    cy.get(this.userInput).click().type(invalidUsername)
+    cy.get(this.passwdInput).type(invalidPassword)
     cy.get(this.signInBtn).click()
   }
 
   displayErrorMessage() {
-    cy.get(this.ErrorMessage)
+    cy.get(this.ErrorMessage).should(
+      'contain.text',
+      'The email address and password that you entered did not match our records.',
+    )
   }
 
   addTextToSearchInput(text) {
@@ -91,10 +94,29 @@ export default class BasePage {
   switchlanguageEn() {
     cy.get(this.tradChineseLink).click()
     cy.get(this.englishLink).click()
-    cy.url().should('include', 'sc_lang=en')
+    cy.url().should('include', 'lang=en')
   }
 
   clickMyAccount() {
     cy.get(this.myAccountBtn).click()
+  }
+
+  switchLanguageTo(language) {
+    switch (language) {
+      case 'zh':
+        cy.get(this.tradChineseLink).click()
+        break
+      case 'zh-cn':
+        cy.get(this.simpleChineseLink).click()
+        break
+      case 'en':
+        //cy.get(this.englishLink).click()
+        cy.get(this.tradChineseLink).click()
+        cy.get(this.englishLink).click()
+        cy.url().should('include', 'lang=en')
+        break
+      default:
+        break
+    }
   }
 }
