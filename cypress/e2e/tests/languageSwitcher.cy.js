@@ -11,14 +11,17 @@ describe('Language Switcher Functionality', () => {
   })
 
   it('Switch ZH language', () => {
-    homePage.switchlanguageZh()
+    //homePage.switchlanguageZh()
+    homePage.switchLanguageTo('zh')
   })
 
   it('Switch Zh-Cn language', () => {
-    homePage.switchlanguageZhCn()
+    //homePage.switchlanguageZhCn()
+    homePage.switchLanguageTo('zh-cn')
   })
 
-  it('Switch En language', () => {
-    homePage.switchlanguageEn()
+  it.only('Switch En language', () => {
+    //homePage.switchlanguageEn()
+    homePage.switchLanguageTo('en')
   })
 })

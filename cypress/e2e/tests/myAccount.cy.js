@@ -13,6 +13,8 @@ describe('MyAccount Functionality Tests', () => {
     homePage.clickMyAccount()
   })
 
+  // doesn't work tests (uncaught exception)
+
   it('check sections functionality', () => {
     myAccountPage.clickBuying()
     cy.url().should('include', 'ua&submenuTapped')
@@ -49,7 +51,7 @@ describe('MyAccount Functionality Tests', () => {
     myAccountPage.deleteUKAddress()
   })
 
-  it.only('Add new USA address to address book', () => {
+  it('Add new USA address to address book', () => {
     myAccountPage.navigateToAddressBookForm()
     myAccountPage.addNewUSAAddress()
     myAccountPage.deleteUSAAddress()
