@@ -16,9 +16,12 @@ When('I login to my account.', () => {
   homePage.clickMyAccount()
 })
 
-When('I login to my account with invalid credentials', () => {
-  homePage.invalidlogin()
-})
+When(
+  'I login to my account with invalid {string} and {string}.',
+  (username, password) => {
+    homePage.invalidlogin(username, password)
+  },
+)
 
 Then('Check name user and check url.', () => {
   myAccountPage.checkNameUser()
@@ -26,11 +29,5 @@ Then('Check name user and check url.', () => {
 })
 
 Then('I get error message that credentials did not match our records.', () => {
-  homePage
-    .displayErrorMessage()
-    .should('be.visible')
-    .and(
-      'contain.text',
-      'The email address and password that you entered did not match our records.',
-    )
+  homePage.displayErrorMessage()
 })

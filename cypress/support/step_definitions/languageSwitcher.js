@@ -9,10 +9,10 @@ Given('I open HomePage', () => {
   })
 })
 
-When('I Switch Language to simple Chinese.', () => {
-  homePage.switchlanguageZhCn()
+When('I Switch {string}.', (languages) => {
+  homePage.switchLanguageTo(languages)
 })
 
-Then('Url should include attribute.', () => {
-  cy.url().should('include', 'lang=zh-cn')
+Then('Url should include {string}.', (attribute) => {
+  cy.url().should('include', attribute)
 })

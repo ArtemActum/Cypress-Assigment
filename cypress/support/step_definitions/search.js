@@ -13,13 +13,8 @@ Given('I open Home Page.', () => {
 
 When('I add {string} to search input.', (text) => {
   homePage.addTextToSearchInput(text)
-  cy.url().should('include', 'Test')
 })
 
-When('I add special char to search input.', () => {
-  homePage.addTextToSearchInput('%')
-})
-
-Then('Check search result items.', () => {
-  searchPage.searchResultItems().should('have.length', 0)
+Then('Check in url this {string}.', (text) => {
+  cy.url().should('include', text)
 })
