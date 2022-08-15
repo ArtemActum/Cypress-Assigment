@@ -14,18 +14,11 @@ async function setupNodeEvents(on, config) {
   )
 
   // Make sure to return the config object as it might have been modified by the plugin.
-  require('cypress-mochawesome-reporter/plugin')(on)
 
   return config
 }
 
 module.exports = defineConfig({
-  reporter: 'cypress-mochawesome-reporter',
-  reporterOptions: {
-    reportDir: './reports/mocha',
-    inlineAssets: true,
-    embeddedScreenshots: true,
-  },
   e2e: {
     baseUrl: 'https://staging.christies.com',
     defaultCommandTimeout: 15000,
