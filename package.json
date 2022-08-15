@@ -14,7 +14,7 @@
     "cy:run:search": "cypress run -s cypress/e2e/tests/search.cy.js",
     "cy:run:lang": "cypress run -s cypress/e2e/tests/languageSwitcher.cy.js",
     "html-report": "cypress run --spec cypress/e2e/tests/languageSwitcher.cy.js",
-    "html-report-cucumber": "cypress run --spec cypress/e2e/cucumber-tests/features/*.feature --browser chrome --headed"
+    "html-report-cucumber": "cypress run --spec cypress/e2e/cucumber-tests/features/languageSwitcher.feature"
   },
   "author": "",
   "license": "ISC",
