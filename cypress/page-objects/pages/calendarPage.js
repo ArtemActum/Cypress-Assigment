@@ -32,6 +32,11 @@ export default class CalendarPage extends BasePage {
   typeOfLot =
     ':nth-child(1) > chr-event-tile.hydrated > .container-fluid > .row > .chr-event-tile__details > .chr-event-tile__subtitle'
   // Page Object Methods
+
+  open(path = '/calendar') {
+    super.open(path)
+  }
+
   loginFromCalendar(
     username = 'artemminsadyrov@seznam.cz',
     password = 'Zaqxsw111',

@@ -6,9 +6,10 @@ describe('Search tests', () => {
   const homePage = new HomePage()
 
   beforeEach(() => {
-    cy.visit('/').then(() => {
-      homePage.setCookie()
-    })
+    homePage.open()
+    // cy.visit('/').then(() => {
+    //   homePage.setCookie()
+    // })
   })
 
   it('check if search is working', () => {

@@ -35,6 +35,12 @@ export default class BasePage {
   //   })
   // }
 
+  open(path) {
+    cy.visit(path).then(() => {
+      this.setCookie()
+    })
+  }
+
   setCookie() {
     const date = new Date().toISOString()
     console.log(window.location)

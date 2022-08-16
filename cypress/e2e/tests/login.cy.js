@@ -6,10 +6,10 @@ describe('Login Functionality Tests', () => {
   const myAccountPage = new MyAccount()
 
   beforeEach(() => {
-    // homePage.open()
-    cy.visit('/').then(() => {
-      homePage.setCookie()
-    })
+    homePage.open()
+    // cy.visit('/').then(() => {
+    //   homePage.setCookie()
+    // })
   })
 
   it('login into application', () => {

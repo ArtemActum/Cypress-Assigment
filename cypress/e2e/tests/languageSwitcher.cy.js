@@ -4,10 +4,10 @@ describe('Language Switcher Functionality', () => {
   const homePage = new HomePage()
 
   beforeEach(() => {
-    // homePage.open()
-    cy.visit('/').then(() => {
-      homePage.setCookie()
-    })
+    homePage.open()
+    // cy.visit('/').then(() => {
+    //   homePage.setCookie()
+    // })
   })
 
   it('Switch ZH language', () => {

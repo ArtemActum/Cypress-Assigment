@@ -6,9 +6,10 @@ describe('MyAccount Functionality Tests', () => {
   const myAccountPage = new MyAccount()
 
   beforeEach(() => {
-    cy.visit('/').then(() => {
-      homePage.setCookie()
-    })
+    homePage.open()
+    // cy.visit('/').then(() => {
+    //   homePage.setCookie()
+    // })
     homePage.login()
     homePage.clickMyAccount()
   })
