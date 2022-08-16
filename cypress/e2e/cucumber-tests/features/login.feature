@@ -11,6 +11,6 @@ Feature: Login
         When I login to my account with invalid "<username>" and "<password>".
         Then I get error message that credentials did not match our records.
         Examples:
-            | username | password       |
-            | testName | secret_sauce   |
-            | artem    | secretpassword |
+            | username | password        |
+            | testName | secret_password |
+            | artem    | secretpassword  |
