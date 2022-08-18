@@ -6,15 +6,15 @@
   "scripts": {
     "cy:open": "cypress open",
     "cypress:execution": "cypress run",
-    "generate report": "node ./cucumber-html-report.js",
+    "generate:report": "node ./cucumber-html-report.js",
     "cy:run:chrome": "cypress run --browser chrome",
     "cy:run:firefox": "cypress run --browser firefox",
     "cy:run:all": "cypress run -s cypress/e2e/tests/*.cy.js",
     "cy:run:login": "cypress run -s cypress/e2e/tests/login.cy.js",
     "cy:run:search": "cypress run -s cypress/e2e/tests/search.cy.js",
     "cy:run:lang": "cypress run -s cypress/e2e/tests/languageSwitcher.cy.js",
-    "cucumber tests": "cypress run -s cypress/e2e/cucumber-tests/features/*.feature",
-    "cucumber lang tests": "cypress run -s cypress/e2e/cucumber-tests/features/languageSwitcher.feature"
+    "cucumber:tests": "cypress run -s cypress/e2e/cucumber-tests/features/*.feature",
+    "cucumber:lang": "cypress run --spec cypress/e2e/cucumber-tests/features/languageSwitcher.feature"
   },
   "author": "",
   "license": "ISC",
