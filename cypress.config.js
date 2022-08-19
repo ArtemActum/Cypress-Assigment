@@ -31,7 +31,7 @@ module.exports = defineConfig({
     viewportWidth: 1920,
     viewportHeight: 1080,
     blockHosts: ['static.srcspot.com'],
-    specPattern: ['**/*.cy.js', '**/*.feature'],
+    specPattern: ['**/*.cy.{ts,tsx,js}', '**/*.feature'],
     supportFile: false,
     setupNodeEvents,
   },
