@@ -26,6 +26,7 @@
     "@esbuild-plugins/node-modules-polyfill": "^0.1.4",
     "@types/mocha": "^9.1.1",
     "@types/node": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.34.0",
     "chai-style": "^1.0.3",
     "cucumber-html-reporter": "^5.5.0",
     "cypress": "^10.3.0",
