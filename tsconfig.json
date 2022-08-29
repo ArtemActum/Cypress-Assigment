@@ -4,7 +4,7 @@
     "esModuleInterop": true,
     "target": "es6",
     "lib": ["ES2021.String", "DOM"],
-    "types": ["cypress", "node", "Long"],
+    "types": ["cypress", "node"],
     "sourceMap": true,
     "allowJs": true,
     "moduleResolution": "Node",
@@ -15,7 +15,7 @@
     "**/*.ts",
     "cypress/support/index.d.ts",
     "cypress/support/e2e.js",
-    "cypress/support/commands.js"
+    "cypress/support/commands.ts"
   ],
   "exclude": ["node_modules", "tsconfig.json"],
   "compileOnSave": true
