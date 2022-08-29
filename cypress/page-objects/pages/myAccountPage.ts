@@ -6,7 +6,7 @@ export default class MyAccount extends BasePage {
   nameUser = '#ctl00_lblUser'
   logoutBtn =
     '.chr-button.chr-button--lg.chr-button--light.chr-button--link.d-flex > .chr-action.chr-button__text'
-  //buyingBtn = '.myc-header__nav > :nth-child(1) > .chr-page-nav__link'
+  // buyingBtn = '.myc-header__nav > :nth-child(1) > .chr-page-nav__link'
   buyingBtn =
     '.myc-header__nav > :nth-child(1) > .chr-page-nav__link > .chr-action'
   sellingBtn =
@@ -39,7 +39,7 @@ export default class MyAccount extends BasePage {
     "#tAddressBook [class='mb-5']:nth-of-type(5) .chr-text-input__field"
   cityInput = '#txtCity'
   provinceUKInput = '#ddlProvince'
-  //provinceCZInput = '#ddlProvince'
+  // provinceCZInput = '#ddlProvince'
   postalCodeInput = '#txtPostalCode'
   saveBtn = '#btnSaveAddress'
   okayBtn = '#confirmationModal .chr-button--full-width'

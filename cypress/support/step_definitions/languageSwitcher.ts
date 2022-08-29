@@ -1,3 +1,4 @@
+/* eslint-disable new-cap */
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import HomePage from '../../page-objects/pages/homePage'
 
@@ -9,7 +10,7 @@ Given('I open HomePage', () => {
   })
 })
 
-When('I Switch {string}.', (languages) => {
+When('I Switch {string}.', (languages?: string) => {
   homePage.switchLanguageTo(languages)
 })
 

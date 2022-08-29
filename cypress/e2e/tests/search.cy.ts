@@ -37,7 +37,7 @@ describe('Search tests', () => {
     homePage.addTextToSearchInput('$')
     cy.url().should('include', '%24')
     cy.get(searchPage.searchResultItems).should('have.length', 0)
-    //searchPage.searchResultItems()
+    // searchPage.searchResultItems()
     // cy.get(searchPage.searchResultItems).should('have.length', 0)
     // homePage.addTextToSearchInput('+')
     // searchPage.searchResultItems()

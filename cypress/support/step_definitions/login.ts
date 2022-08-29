@@ -1,3 +1,4 @@
+/* eslint-disable new-cap */
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import MyAccount from '../../page-objects/pages/myAccountPage'
 import HomePage from '../../page-objects/pages/homePage'
@@ -18,7 +19,7 @@ When('I login to my account.', () => {
 
 When(
   'I login to my account with invalid {string} and {string}.',
-  (username, password) => {
+  (username?: string, password?: string) => {
     homePage.invalidlogin(username, password)
   },
 )

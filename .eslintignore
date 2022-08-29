@@ -9,3 +9,6 @@
 **/1-getting-started/*
 **/2-advanced-examples/*
 **/*.config.ts
+**/index.ts
+**/commands.ts
+**/e2e.ts

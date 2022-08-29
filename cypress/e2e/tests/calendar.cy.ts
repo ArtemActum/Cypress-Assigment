@@ -1,8 +1,7 @@
 import CalendarPage from '../../page-objects/pages/calendarPage'
-import HomePage from '../../page-objects/pages/homePage'
+
 
 describe('Language Switcher Functionality', () => {
-  const homePage = new HomePage()
   const calendarPage = new CalendarPage()
 
   beforeEach(() => {

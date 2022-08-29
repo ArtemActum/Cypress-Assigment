@@ -1,12 +1,12 @@
-Cypress.Commands.add('isVisible', (selector) => {
-  cy.get(selector).should('be.visible')
-})
+// Cypress.Commands.add('isVisible', (selector) => {
+//   cy.get(selector).should('be.visible')
+// })
 
-Cypress.Commands.add('login', (username, password) => {
-  cy.get('#username').type(username)
-  cy.get('#password').type(password)
-  cy.contains('Sign in').click()
-})
+// Cypress.Commands.add('login', (username, password) => {
+//   cy.get('#username').type(username)
+//   cy.get('#password').type(password)
+//   cy.contains('Sign in').click()
+// })
 
 Cypress.Commands.add('setCookie', () => {
   const date = new Date().toISOString()
@@ -27,4 +27,4 @@ Cypress.Commands.add('setCookie', () => {
 // }
 
 // type definitions for Cypress object "cy"
-/// <reference types="cypress" />
+// <reference types="cypress" />

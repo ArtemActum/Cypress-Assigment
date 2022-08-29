@@ -18,7 +18,6 @@ export default class BasePage {
     '.chr-button.chr-button--full-width.chr-button--lg.chr-button--light.chr-button--primary > .chr-button__text'
   inputErrorText = '.chr-text-input__error>span'
   loginErrorText = '.content-zone.chr-label.chr-color-red-alert'
-  forgottenLink = '.chr-modal .chr-body.chr-link--underline'
   searchInput = '#site-search'
   searchBtn =
     'header .chr-button.chr-button--icon.chr-button--lg.chr-button--light.chr-button--icon-left'
@@ -116,7 +115,7 @@ export default class BasePage {
         cy.get(this.simpleChineseLink).click()
         break
       case 'en':
-        //cy.get(this.englishLink).click()
+        // cy.get(this.englishLink).click()
         cy.get(this.tradChineseLink).click()
         cy.get(this.englishLink).click()
         cy.url().should('include', 'lang=en')
