@@ -41,15 +41,15 @@ describe('REST API Test with Cypress', () => {
     cy.get('@CreateToken').its('status').should('equal', 200)
   })
 
-  it('API TEST - GET restful-booker', () => {
-    cy.request({
-      method: 'POST',
-      url: 'https://restful-booker.herokuapp.com/auth', // baseUrl is prepend to URL
-      form: true, // indicates the body should be form urlencoded and sets Content-Type: application/x-www-form-urlencoded headers
-      body: {
-        username: 'admin',
-        password: 'password123',
-      },
-    })
-  })
+  // it('API TEST - GET restful-booker', () => {
+  //   cy.request({
+  //     method: 'POST',
+  //     url: 'https://restful-booker.herokuapp.com/auth', // baseUrl is prepend to URL
+  //     form: true, // indicates the body should be form urlencoded and sets Content-Type: application/x-www-form-urlencoded headers
+  //     body: {
+  //       username: 'admin',
+  //       password: 'password123',
+  //     },
+  //   })
+  // })
 })

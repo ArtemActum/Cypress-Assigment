@@ -15,7 +15,15 @@ Cypress.Commands.add('setCookie', () => {
   cy.setCookie('OptanonAlertBoxClosed', date).then(() => {
     cy.reload()
   })
+
+// Cypress.Commands.add('API', (username, password) => {
+//   cy.get('#username').type(username)
+//   cy.get('#password').type(password)
+//   cy.contains('Sign in').click()
+// })
+
 })
+
 
 // setCookie() {
 //   const date = new Date().toISOString()
