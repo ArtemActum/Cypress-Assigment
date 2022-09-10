@@ -11,7 +11,7 @@ async function setupNodeEvents(on, config) {
     createBundler({
       plugins: [createEsbuildPlugin.default(config)],
     }),
-  )
+)
 
   // Make sure to return the config object as it might have been modified by the plugin.
   require('cypress-mochawesome-reporter/plugin')(on)

@@ -1,0 +1,211 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 4,
+    "pending": 0,
+    "failures": 2,
+    "start": "2022-08-31T09:37:52.268Z",
+    "end": "2022-08-31T11:15:00.835Z",
+    "duration": 5828567,
+    "testsRegistered": 6,
+    "passPercent": 66.66666666666666,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4c45678e-b546-4f33-8e1b-08653126d7d5",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\calendar.cy.ts",
+      "file": "cypress\\e2e\\tests\\calendar.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6a17a3a9-d042-4a3e-a5fa-2648302bb133",
+          "title": "Language Switcher Functionality",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Followed filter - ON",
+              "fullTitle": "Language Switcher Functionality Followed filter - ON",
+              "timedOut": null,
+              "duration": 44500,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "calendarPage.loginFromCalendar();\ncalendarPage.clickFollowedFilter();\ncy.url().should(\"include\", \"event_following\");",
+              "err": {},
+              "uuid": "50d307fb-33ce-4949-a4a2-2c072c3928f1",
+              "parentUUID": "6a17a3a9-d042-4a3e-a5fa-2648302bb133",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "check filter",
+              "fullTitle": "Language Switcher Functionality check filter",
+              "timedOut": null,
+              "duration": 33398,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "calendarPage.clickLearningLecturesBtn();\ncalendarPage.clickCategorySection();\ncalendarPage.clickAsianArtBtn();\ncy.url().should(\"include\", \"|event_6|category_5|\");",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: expected 'https://staging.christies.com/calendar?filters=|event_7|category_5|' to include '|event_6|category_5|'",
+                "estack": "AssertionError: Timed out retrying after 15000ms: expected 'https://staging.christies.com/calendar?filters=|event_7|category_5|' to include '|event_6|category_5|'\n    at Context.eval (https://staging.christies.com/__cypress/tests?p=cypress\\e2e\\tests\\calendar.cy.ts:189:16)",
+                "diff": null
+              },
+              "uuid": "ca2b4392-05af-4082-a92d-336e580223c9",
+              "parentUUID": "6a17a3a9-d042-4a3e-a5fa-2648302bb133",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Filter - clear all",
+              "fullTitle": "Language Switcher Functionality Filter - clear all",
+              "timedOut": null,
+              "duration": 5668427,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "calendarPage.clickLiveBtn();\ncalendarPage.clickLearningLecturesBtn();\ncalendarPage.clickCategorySection();\ncalendarPage.clickAsianArtBtn();\ncy.url().should(\"include\", \"|event_live|event_6|category_5|\");\ncalendarPage.clickClearAllBtn();\ncy.url().should(\"not.include\", \"|event_live|event_6|category_5|\");",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: expected 'https://staging.christies.com/calendar?filters=|event_live|event_7|category_5|' to include '|event_live|event_6|category_5|'",
+                "estack": "AssertionError: Timed out retrying after 15000ms: expected 'https://staging.christies.com/calendar?filters=|event_live|event_7|category_5|' to include '|event_live|event_6|category_5|'\n    at Context.eval (https://staging.christies.com/__cypress/tests?p=cypress\\e2e\\tests\\calendar.cy.ts:196:16)",
+                "diff": null
+              },
+              "uuid": "28177193-e74c-44a2-8f80-0d371e66115a",
+              "parentUUID": "6a17a3a9-d042-4a3e-a5fa-2648302bb133",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Location filter",
+              "fullTitle": "Language Switcher Functionality Location filter",
+              "timedOut": null,
+              "duration": 44675,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "calendarPage.clickLocationSection();\ncalendarPage.clickArgentinaBtn();\ncalendarPage.checkLocationOfLot();",
+              "err": {},
+              "uuid": "10d0655c-fda4-4dc1-874f-c4946e47d71f",
+              "parentUUID": "6a17a3a9-d042-4a3e-a5fa-2648302bb133",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "check month of lot",
+              "fullTitle": "Language Switcher Functionality check month of lot",
+              "timedOut": null,
+              "duration": 13866,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "calendarPage.clickOctoberSection();\ncalendarPage.checkMonthOfLot();",
+              "err": {},
+              "uuid": "2054f9b8-2f04-4bee-ab15-c50d5a2e1510",
+              "parentUUID": "6a17a3a9-d042-4a3e-a5fa-2648302bb133",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "check type auction of lot",
+              "fullTitle": "Language Switcher Functionality check type auction of lot",
+              "timedOut": null,
+              "duration": 21115,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "calendarPage.clickOnlineBtn();\ncalendarPage.checkTypeOfLot();",
+              "err": {},
+              "uuid": "164d93da-ea33-47b5-b124-e2ce138c4357",
+              "parentUUID": "6a17a3a9-d042-4a3e-a5fa-2648302bb133",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "50d307fb-33ce-4949-a4a2-2c072c3928f1",
+            "10d0655c-fda4-4dc1-874f-c4946e47d71f",
+            "2054f9b8-2f04-4bee-ab15-c50d5a2e1510",
+            "164d93da-ea33-47b5-b124-e2ce138c4357"
+          ],
+          "failures": [
+            "ca2b4392-05af-4082-a92d-336e580223c9",
+            "28177193-e74c-44a2-8f80-0d371e66115a"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 5825981,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports\\mocha\\.jsons",
+        "inlineAssets": true,
+        "embeddedScreenshots": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
