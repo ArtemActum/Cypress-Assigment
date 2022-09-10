@@ -4,7 +4,7 @@
     "esModuleInterop": true,
     "target": "es6",
     "lib": ["ES2021.String", "DOM"],
-    "types": ["cypress", "node"],
+    "types": ["cypress", "node", "Long"],
     "sourceMap": true,
     "allowJs": true,
     "moduleResolution": "Node",
