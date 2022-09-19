@@ -1,21 +1,16 @@
 // <reference types="Cypress" />
+import APIPage from '../../page-objects/pages/ApiPage'
 
 describe('REST API Test with Cypress', () => {
-  it('API TEST - Validate Header', () => {
+  const apiPage = new APIPage()
+
+  it('API TEST - Validate Header, Status Code and Name Value', () => {
     cy.request('https://pokeapi.co/api/v2/pokemon/25').as('pokemon') //  Make an HTTP request.
     cy.get('@pokemon')
       .its('headers') //  calls 'headers' property returning that value
       .its('content-type')
       .should('include', 'application/json; charset=utf-8')
-  })
-
-  it('API TEST - Validate Status Code', () => {
-    cy.request('https://pokeapi.co/api/v2/pokemon/25').as('pokemon')
     cy.get('@pokemon').its('status').should('equal', 200)
-  })
-
-  it('API TEST - Validate Name Value', () => {
-    cy.request('https://pokeapi.co/api/v2/pokemon/25').as('pokemon')
     cy.get('@pokemon').its('body').should('include', { name: 'pikachu' })
   })
 
@@ -29,15 +24,12 @@ describe('REST API Test with Cypress', () => {
   })
 
   it('API TEST - POST restful-booker', () => {
-    cy.request({
-      method: 'POST',
-      url: 'https://restful-booker.herokuapp.com/auth',
-    }).as('CreateToken')
-    cy.get('@CreateToken').its('status').should('equal', 200)
-  })
+    // cy.request({
+    //   method: 'POST',
+    //   url: 'https://restful-booker.herokuapp.com/auth',
+    // }).as('CreateToken')
+    apiPage.requestPost('https://restful-booker.herokuapp.com/auth')
 
-  it('API TEST - GET restful-booker', () => {
-    cy.request('https://pokeapi.co/api/v2/pokemon/25').as('CreateToken')
     cy.get('@CreateToken').its('status').should('equal', 200)
   })
 

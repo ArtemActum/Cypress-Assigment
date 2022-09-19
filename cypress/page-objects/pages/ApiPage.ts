@@ -1,13 +1,30 @@
 import BasePage from '../basePage'
 
-export default class CalendarPage extends BasePage {   
-  randomEmail() {
-    let randomText = ''
-    let testEmail = ''
-    const pattern = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+export default class CalendarPage extends BasePage {
+  // randomEmail() {
+  //   let randomText = ''
+  //   let testEmail = ''
+  //   const pattern = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+  //   for (let i = 0; i < 10; i++)
+  //     randomText += pattern.charAt(Math.floor(Math.random() * pattern.length))
+  //   testEmail = randomText + '@gmail.com'
+  // }
+
+  randomEmail(
+    randomText = '',
+    testEmail = '',
+    pattern = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
+  ) {
     for (let i = 0; i < 10; i++)
       randomText += pattern.charAt(Math.floor(Math.random() * pattern.length))
     testEmail = randomText + '@gmail.com'
+  }
+
+  requestPost(url = '') {
+    cy.request({
+      method: 'POST',
+      url: url,
+    }).as('CreateToken')
   }
 
   // private fillInAddressFields(
@@ -23,5 +40,4 @@ export default class CalendarPage extends BasePage {
   //   this.cityInput().type(city).should('have.value', city)
   //   this.postCodeInput().type(postCode).should('have.value', postCode)
   // }
-
 }
