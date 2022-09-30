@@ -30,7 +30,7 @@ describe('REST API Test with Cypress', () => {
     // }).as('CreateToken')
     apiPage.requestPost('https://restful-booker.herokuapp.com/auth')
 
-    cy.get('@CreateToken').its('status').should('equal', 200)
+    cy.get('@requestPost').its('status').should('equal', 200)
   })
 
   // it('API TEST - GET restful-booker', () => {

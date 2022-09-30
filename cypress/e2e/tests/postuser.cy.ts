@@ -1,7 +1,6 @@
 // <reference types="Cypress" />
-// const dataJson = require('../../fixtures/createuser')
 import dataJson from '../../fixtures/createuser.json'
-// import APIPage from '../../page-objects/pages/ApiPage'
+//  import APIPage from '../../page-objects/pages/ApiPage'
 
 describe('post api user tests', () => {
   //  const apiPage = new APIPage()

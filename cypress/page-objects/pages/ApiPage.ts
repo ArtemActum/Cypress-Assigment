@@ -24,7 +24,7 @@ export default class CalendarPage extends BasePage {
     cy.request({
       method: 'POST',
       url: url,
-    }).as('CreateToken')
+    }).as('requestPost')
   }
 
   // private fillInAddressFields(
