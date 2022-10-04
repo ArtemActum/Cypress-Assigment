@@ -1,5 +1,6 @@
 // <reference types="Cypress" />
 import APIPage from '../../page-objects/pages/ApiPage'
+import ApiClient from '../../apis/client'
 
 describe('REST API Test with Cypress', () => {
   const apiPage = new APIPage()
@@ -8,6 +9,24 @@ describe('REST API Test with Cypress', () => {
     cy.request('https://pokeapi.co/api/v2/pokemon/25').as('pokemon') //  Make an HTTP request.
     cy.get('@pokemon')
       .its('headers') //  calls 'headers' property returning that value
+      .its('content-type')
+      .should('include', 'application/json; charset=utf-8')
+    cy.get('@pokemon').its('status').should('equal', 200)
+    cy.get('@pokemon').its('body').should('include', { name: 'pikachu' })
+  })
+
+  it('API TEST - APIMethod with APIClient', () => {
+    ApiClient.getHealthCheck()
+  })
+
+  it('API TEST - APIMethod', () => {
+    apiPage.requestCustom(
+      'https://pokeapi.co/api/v2/pokemon/25',
+      'Get',
+      'pokemon',
+    )
+    cy.get('@pokemon')
+      .its('headers')
       .its('content-type')
       .should('include', 'application/json; charset=utf-8')
     cy.get('@pokemon').its('status').should('equal', 200)
@@ -24,24 +43,11 @@ describe('REST API Test with Cypress', () => {
   })
 
   it('API TEST - POST restful-booker', () => {
-    // cy.request({
-    //   method: 'POST',
-    //   url: 'https://restful-booker.herokuapp.com/auth',
-    // }).as('CreateToken')
-    apiPage.requestPost('https://restful-booker.herokuapp.com/auth')
-
+    apiPage.requestCustom(
+      'https://restful-booker.herokuapp.com/auth',
+      'Post',
+      'requestPost',
+    )
     cy.get('@requestPost').its('status').should('equal', 200)
   })
-
-  // it('API TEST - GET restful-booker', () => {
-  //   cy.request({
-  //     method: 'POST',
-  //     url: 'https://restful-booker.herokuapp.com/auth', // baseUrl is prepend to URL
-  //     form: true, // indicates the body should be form urlencoded and sets Content-Type: application/x-www-form-urlencoded headers
-  //     body: {
-  //       username: 'admin',
-  //       password: 'password123',
-  //     },
-  //   })
-  // })
 })
