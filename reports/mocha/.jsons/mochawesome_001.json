@@ -1,0 +1,219 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 2,
+    "pending": 0,
+    "failures": 4,
+    "start": "2022-10-06T11:38:01.396Z",
+    "end": "2022-10-06T11:42:23.640Z",
+    "duration": 262244,
+    "testsRegistered": 6,
+    "passPercent": 33.33333333333333,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a660023e-8d6e-4d37-b09f-216d61f142ad",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\calendar.cy.ts",
+      "file": "cypress\\e2e\\tests\\calendar.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d6a34445-feeb-4f59-8d6b-d767d7b204c1",
+          "title": "Language Switcher Functionality",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Followed filter - ON",
+              "fullTitle": "Language Switcher Functionality Followed filter - ON",
+              "timedOut": null,
+              "duration": 76728,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "calendarPage.loginFromCalendar();\ncalendarPage.clickFollowedFilter();\ncy.url().should(\"include\", \"event_following\");",
+              "err": {},
+              "uuid": "8b22226a-ca70-4156-96cb-79542fe2f3a3",
+              "parentUUID": "d6a34445-feeb-4f59-8d6b-d767d7b204c1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "check filter",
+              "fullTitle": "Language Switcher Functionality check filter",
+              "timedOut": null,
+              "duration": 32088,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "calendarPage.clickLearningLecturesBtn();\ncalendarPage.clickCategorySection();\ncalendarPage.clickAsianArtBtn();\ncy.url().should(\"include\", \"|event_6|category_5|\");",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: expected 'https://staging.christies.com/calendar?filters=|event_1|category_5|' to include '|event_6|category_5|'",
+                "estack": "AssertionError: Timed out retrying after 15000ms: expected 'https://staging.christies.com/calendar?filters=|event_1|category_5|' to include '|event_6|category_5|'\n    at Context.eval (https://staging.christies.com/__cypress/tests?p=cypress\\e2e\\tests\\calendar.cy.ts:189:16)",
+                "diff": null
+              },
+              "uuid": "a9c90ea6-c904-4382-9be1-09e0e711bb18",
+              "parentUUID": "d6a34445-feeb-4f59-8d6b-d767d7b204c1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Filter - clear all",
+              "fullTitle": "Language Switcher Functionality Filter - clear all",
+              "timedOut": null,
+              "duration": 50030,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "calendarPage.clickLiveBtn();\ncalendarPage.clickLearningLecturesBtn();\ncalendarPage.clickCategorySection();\ncalendarPage.clickAsianArtBtn();\ncy.url().should(\"include\", \"|event_live|event_6|category_5|\");\ncalendarPage.clickClearAllBtn();\ncy.url().should(\"not.include\", \"|event_live|event_6|category_5|\");",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: expected 'https://staging.christies.com/calendar?filters=|event_live|event_1|category_5|' to include '|event_live|event_6|category_5|'",
+                "estack": "AssertionError: Timed out retrying after 15000ms: expected 'https://staging.christies.com/calendar?filters=|event_live|event_1|category_5|' to include '|event_live|event_6|category_5|'\n    at Context.eval (https://staging.christies.com/__cypress/tests?p=cypress\\e2e\\tests\\calendar.cy.ts:196:16)",
+                "diff": null
+              },
+              "uuid": "34502ae7-e6f6-45ba-9088-ae09607d5883",
+              "parentUUID": "d6a34445-feeb-4f59-8d6b-d767d7b204c1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Location filter",
+              "fullTitle": "Language Switcher Functionality Location filter",
+              "timedOut": null,
+              "duration": 47630,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "calendarPage.clickLocationSection();\ncalendarPage.clickArgentinaBtn();\ncalendarPage.checkLocationOfLot();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: expected '<span.chr-label-s>' to contain 'Argentina'",
+                "estack": "AssertionError: Timed out retrying after 15000ms: expected '<span.chr-label-s>' to contain 'Argentina'\n    at CalendarPage.checkLocationOfLot (https://staging.christies.com/__cypress/tests?p=cypress\\e2e\\tests\\calendar.cy.ts:155:34)\n    at Context.eval (https://staging.christies.com/__cypress/tests?p=cypress\\e2e\\tests\\calendar.cy.ts:203:20)",
+                "diff": null
+              },
+              "uuid": "0b5cd562-df35-4338-881e-3e5b00f935f6",
+              "parentUUID": "d6a34445-feeb-4f59-8d6b-d767d7b204c1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "check month of lot",
+              "fullTitle": "Language Switcher Functionality check month of lot",
+              "timedOut": null,
+              "duration": 39402,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "calendarPage.clickOctoberSection();\ncalendarPage.checkMonthOfLot();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: expected '<span>' to contain text 'October', but the text was '1 December'",
+                "estack": "AssertionError: Timed out retrying after 15000ms: expected '<span>' to contain text 'October', but the text was '1 December'\n    at CalendarPage.checkMonthOfLot (https://staging.christies.com/__cypress/tests?p=cypress\\e2e\\tests\\calendar.cy.ts:158:31)\n    at Context.eval (https://staging.christies.com/__cypress/tests?p=cypress\\e2e\\tests\\calendar.cy.ts:207:20)",
+                "diff": "- '1 December'\n+ 'October'\n"
+              },
+              "uuid": "b62e59af-968d-4be4-b9c4-43adb8bab1e0",
+              "parentUUID": "d6a34445-feeb-4f59-8d6b-d767d7b204c1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "check type auction of lot",
+              "fullTitle": "Language Switcher Functionality check type auction of lot",
+              "timedOut": null,
+              "duration": 15081,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "calendarPage.clickOnlineBtn();\ncalendarPage.checkTypeOfLot();",
+              "err": {},
+              "uuid": "e5eb8523-3d81-423c-9972-260150f38ecd",
+              "parentUUID": "d6a34445-feeb-4f59-8d6b-d767d7b204c1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8b22226a-ca70-4156-96cb-79542fe2f3a3",
+            "e5eb8523-3d81-423c-9972-260150f38ecd"
+          ],
+          "failures": [
+            "a9c90ea6-c904-4382-9be1-09e0e711bb18",
+            "34502ae7-e6f6-45ba-9088-ae09607d5883",
+            "0b5cd562-df35-4338-881e-3e5b00f935f6",
+            "b62e59af-968d-4be4-b9c4-43adb8bab1e0"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 260959,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports\\mocha\\.jsons",
+        "inlineAssets": true,
+        "embeddedScreenshots": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
