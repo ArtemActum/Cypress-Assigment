@@ -1,9 +1,17 @@
 # Cypress-Assigment
 
+### Table of Contents
+- #### Introduction
+- #### Installation
+- #### Usage
+- #### Contributing
+
+### Introduction
+
 This repository contains the code for the Cypress Assignment project. The project aims to demonstrate the usage of Cypress, a JavaScript-based end-to-end testing framework. Automated tests are prepared for integration environment https://integration.christies.com/
 
 
-### Tests written for:
+#### Tests written for:
 - Home page (language switcher)
 - Search bar
 - Calendar page (tests for filters)
@@ -26,7 +34,7 @@ To run the tests locally, follow these steps:
     - Node.js
     - npm
 
-###  Usage
+####  Usage
 - To execute the Cypress tests, use the following command:
     - `npm test`
 
