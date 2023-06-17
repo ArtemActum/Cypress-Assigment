@@ -17,23 +17,23 @@ Mocha and Cucumber reports are prepared.
 To run the tests locally, follow these steps:
 
 1. Clone the repository:
-`git clone https://github.com/ArtemActum/Cypress-Assigment.git`
+    - `git clone https://github.com/ArtemActum/Cypress-Assigment.git`
 2. Navigate to the project directory:
-`cd Cypress-Assigment`
+    - `cd Cypress-Assigment`
 3. Install the dependencies:
-`npm install`
+    - `npm install`
 4. Ensure that you have the required dependencies installed:
     - Node.js
     - npm
 
 ###  Usage
-To execute the Cypress tests, use the following command:
-`npm test`
+- To execute the Cypress tests, use the following command:
+    - `npm test`
 
 This command will run Cypress in headless mode and generate test reports in the terminal.<br> The tests are configured to run on the default browser provided by Cypress.<br> 
 
-If you want to run the tests in an interactive mode and view the Cypress test runner, use the command:
-`npm run cypress:open`
+- If you want to run the tests in an interactive mode and view the Cypress test runner, use the command:
+    - `npm run cypress:open`
 
 This will open the Cypress Test Runner, allowing you to select and run individual test cases.
 
