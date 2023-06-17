@@ -26,7 +26,7 @@ module.exports = defineConfig({
     embeddedScreenshots: true,
   },
   e2e: {
-    baseUrl: 'https://staging.christies.com',
+    baseUrl: 'https://integration.christies.com',
     defaultCommandTimeout: 15000,
     viewportWidth: 1920,
     viewportHeight: 1080,
