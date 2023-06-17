@@ -178,4 +178,42 @@ export default class MyAccount extends BasePage {
   checkNameUser() {
     cy.get(this.nameUser).should('be.visible').and('contain.text', 'Artem M')
   }
+
+  checkBuyingSections() {
+    cy.get(this.buyingBtn).should('be.visible').and('contain.text', 'BUYING')
+  }
+
+  checkSellingSections() {
+    cy.get(this.sellingBtn).should('be.visible').and('contain.text', 'SELLING')
+  }
+
+  checkInterestSections() {
+    cy.get(this.interestsBtn).should('be.visible').and('contain.text', 'INTERESTS')
+  }
+
+  checkSettingsSections() {
+    cy.get(this.settingsBtn).should('be.visible').and('contain.text', 'SETTINGS')
+  }
+
+  ClickableBuyingSection() {
+    this.clickBuying()
+    cy.url().should('include', '/mychristies/activities')
+  }
+
+  ClickableSellingSection() {
+    this.clickSelling()
+    cy.url().should('include', '/mychristies/Consignments')
+  }
+
+  ClickableInterestsSection() {
+    this.clickInterests()
+    cy.url().should('include', '/mychristies/preference_center')
+  }
+
+  ClickableSettingsSection() {
+    this.clickSettings()
+    cy.url().should('include', '/mychristies/my_account_settings')
+  }
+
+
 }
