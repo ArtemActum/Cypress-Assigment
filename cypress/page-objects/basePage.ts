@@ -26,6 +26,7 @@ export default class BasePage {
   magnifyingGlass =
     "form[role='search']  .hydrated > .chr-button.chr-button--icon.chr-button--icon-left.chr-button--lg.chr-button--light > .hydrated  .chr-icon.chr-icon--sm"
   nameUser = '#ctl00_lblUser'
+  
   // Page Object Methods
 
   // open(path) {
@@ -50,12 +51,12 @@ export default class BasePage {
   }
 
   login(
-    loginUsername = 'artemminsadyrov@seznam.cz',
+    loginUsername = 'int-1306202-1@yopmail.com',
     loginPassword = 'Zaqxsw111',
   ) {
     cy.get(this.loginBtn).click()
-    cy.get(this.userInput).click().type(loginUsername)
-    cy.get(this.passwdInput).type(loginPassword)
+    cy.get(this.userInput).click().type(loginUsername, {force: true, delay: 700})
+    cy.get(this.passwdInput).type(loginPassword, {force: true, delay: 700})
     cy.get(this.signInBtn).click()
   }
 
