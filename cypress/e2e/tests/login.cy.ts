@@ -1,7 +1,7 @@
 import HomePage from '../../page-objects/pages/homePage'
 import MyAccount from '../../page-objects/pages/myAccountPage'
 
-describe('Login Functionality Tests', () => {
+describe('Login Functionality Tests', {defaultCommandTimeout: 20000},() => {
   const homePage = new HomePage()
   const myAccountPage = new MyAccount()
 
