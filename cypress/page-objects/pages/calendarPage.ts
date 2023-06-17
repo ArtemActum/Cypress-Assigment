@@ -31,19 +31,25 @@ export default class CalendarPage extends BasePage {
     '#sect_0 > [slot="content"] > :nth-child(1) > .chr-filter-block__list > :nth-child(2) > .chr-checkbox > .chr-checkbox__box'
   typeOfLot =
     ':nth-child(1) > chr-event-tile.hydrated > .container-fluid > .row > .chr-event-tile__details > .chr-event-tile__subtitle'
-  // Page Object Methods
+    auctionsBtn = 'div.chr-header-footer:nth-child(3) chr-header.is-loaded.hydrated header.chr-header div.chr-header__panel:nth-child(2) div.container-fluid div.chr-header__panel-content div.chr-header__panel-content-left chr-main-nav.hydrated nav:nth-child(1) ul.chr-main-nav__list li.chr-main-nav__list-item:nth-child(1) > a.chr-main-nav__link.chr-action'
+  
+    // Page Object Methods
 
   open(path = '/calendar') {
     super.open(path)
   }
 
+  clickAuctions(){
+    cy.get(this.auctionsBtn).click()
+  }
+
   loginFromCalendar(
-    username = 'artemminsadyrov@seznam.cz',
+    username = 'int-1306202-1@yopmail.com',
     password = 'Zaqxsw111',
   ) {
     cy.get(this.loginBtn).click()
-    cy.get(this.userInput).click().type(username)
-    cy.get(this.passwdInput).type(password)
+    cy.get(this.userInput).click().type(username, {force: true, delay: 700})
+    cy.get(this.passwdInput).type(password, {force: true, delay: 700})
     cy.get(this.signInBtn).click()
   }
 
@@ -101,4 +107,6 @@ export default class CalendarPage extends BasePage {
   clickLiveBtn() {
     cy.get(this.liveBtn).click()
   }
+
+  
 }
