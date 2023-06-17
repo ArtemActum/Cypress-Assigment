@@ -6,6 +6,12 @@ import HomePage from '../../page-objects/pages/homePage'
 const homePage = new HomePage()
 const myAccountPage = new MyAccount()
 
+// before(function () {
+//   cy.log('accept cookie being set')
+//   cy.setCookie('FastSignup', 'FastSignupCreated', { domain: 'christies.com' })
+//   cy.setCookie('OptanonAlertBoxClosed', new Date().toString(), { domain: 'christies.com' })
+// })
+
 Given('I open Homepage', () => {
   cy.visit('/').then(() => {
     homePage.setCookie()
