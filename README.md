@@ -10,3 +10,5 @@ Automated tests are prepared for integration environment https://integration.chr
 - Basic API tests
 
 Mocha and Cucumber reports are prepared. 
+
+![image](https://github.com/ArtemActum/Cypress-Assigment/assets/102807433/c64b43f5-7efe-4a9a-9270-4b64af87ed53)
