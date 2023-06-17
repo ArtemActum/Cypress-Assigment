@@ -6,9 +6,6 @@ describe('Language Switcher Functionality', () => {
 
   beforeEach(() => {
     calendarPage.open()
-    // cy.visit('/calendar').then(() => {
-    //   homePage.setCookie()
-    // })
   })
 
   it('Followed filter - ON', () => {
