@@ -17,6 +17,6 @@
     "cypress/support/e2e.js",
     "cypress/support/commands.ts"
   ],
-  "exclude": ["node_modules", "tsconfig.json"],
+  "exclude": ["node_modules", "cypress.config.ts", "cypress"],
   "compileOnSave": true
 }
