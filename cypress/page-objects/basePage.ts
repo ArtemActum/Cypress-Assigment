@@ -60,6 +60,16 @@ export default class BasePage {
     cy.get(this.signInBtn).click()
   }
 
+  loginKYC25Percent(
+    loginUsername = 'int-tw2-20221220-01@yopmail.com',
+    loginPassword = 'Test1234',
+  ) {
+    cy.get(this.loginBtn).click()
+    cy.get(this.userInput).click().type(loginUsername, {force: true, delay: 1000})
+    cy.get(this.passwdInput).type(loginPassword, {force: true, delay: 1000})
+    cy.get(this.signInBtn).click()
+  }
+
   invalidlogin(
     invalidUsername = 'invalid username',
     invalidPassword = 'invalid password',

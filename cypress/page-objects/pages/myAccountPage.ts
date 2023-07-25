@@ -54,6 +54,8 @@ export default class MyAccount extends BasePage {
   citySelector = '#ddlUScity'
   countySelector = '#ddlUSCounty'
   postalCodeUSAInput = '#txtUSzip'
+  kycProgressBar = '#ctl00_divCompleteProfile'
+  kycProgressBarText = 'body.en:nth-child(2) div.main-container:nth-child(20) div.x-responsive-section form:nth-child(1) div.myc-account-progress:nth-child(18) div.chr-body-s.mr-1.progress-mob > span.mr-2'
   // Page Object Methods
 
   logout() {
@@ -179,6 +181,10 @@ export default class MyAccount extends BasePage {
     cy.get(this.nameUser).should('be.visible').and('contain.text', 'Artem M')
   }
 
+  checkNameUser25KYC() {
+    cy.get(this.nameUser).should('be.visible').and('contain.text', 'Angela Zoe UK Specimen')
+  }
+
   checkBuyingSections() {
     cy.get(this.buyingBtn).should('be.visible').and('contain.text', 'BUYING')
   }
@@ -214,6 +220,15 @@ export default class MyAccount extends BasePage {
     this.clickSettings()
     cy.url().should('include', '/mychristies/my_account_settings')
   }
+
+  checkKYCText() {
+    cy.get(this.kycProgressBarText).should('be.visible').and('contain.text', 'Your profile is 25% complete.')
+  }
+
+  checkKYCBar() {
+    cy.get(this.kycProgressBar).should('be.visible')
+  }
+
 
 
 }
