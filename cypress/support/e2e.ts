@@ -13,14 +13,14 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-Cypress.on('uncaught:exception', (err, runnable) => {
-  // console.log(`Uncaught Exception Thrown. ${err.name}`)
-  // console.log(`Uncaught Exception Thrown. ${runnable.body}`)
+// cy.on('uncaught:exception', (err, runnable) => {
+//   // console.log(`Uncaught Exception Thrown. ${err.name}`)
+//   // console.log(`Uncaught Exception Thrown. ${runnable.body}`)
 
-  // returning false here prevents Cypress from
-  // failing the test
-  return false
-})
+//   // returning false here prevents Cypress from
+//   // failing the test
+//   return false
+// })
 
 
 
