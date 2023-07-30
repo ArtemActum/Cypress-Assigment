@@ -185,6 +185,18 @@ export default class MyAccount extends BasePage {
     cy.get(this.nameUser).should('be.visible').and('contain.text', 'Angela Zoe UK Specimen')
   }
 
+  checkNameUser50KYC() {
+    cy.get(this.nameUser).should('be.visible').and('contain.text', 'Jelani Sample')
+  }
+
+  checkNameUser75KYC() {
+    cy.get(this.nameUser).should('be.visible').and('contain.text', 'Mariana Tkachenko')
+  }
+
+  checkNameUser100KYC() {
+    cy.get(this.nameUser).should('be.visible').and('contain.text', 'Miss Amy Louise Sample')
+  }
+
   checkBuyingSections() {
     cy.get(this.buyingBtn).should('be.visible').and('contain.text', 'BUYING')
   }
@@ -228,6 +240,20 @@ export default class MyAccount extends BasePage {
   checkKYCBar() {
     cy.get(this.kycProgressBar).should('be.visible')
   }
+
+  checkNotKYCBar() {
+    cy.get(this.kycProgressBar).should('not.be.visible')
+  }
+
+  check50KYCText() {
+    cy.get(this.kycProgressBar).should('be.visible').and('contain.text', 'Your profile is 50% complete.')
+  }
+
+  check75KYCText() {
+    cy.get(this.kycProgressBar).should('be.visible').and('contain.text', 'Your profile is 75% complete.')
+  }
+
+  
 
 
 

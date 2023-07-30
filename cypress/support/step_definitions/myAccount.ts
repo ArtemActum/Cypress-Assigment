@@ -29,12 +29,62 @@ Given('I log in to MyC by account with 25% of KYC', () => {
     homePage.clickMyAccount()
     myAccountPage.checkNameUser25KYC()
     cy.url().should('include', '/mychristies/activities')
+    cy.on('uncaught:exception', () => {
+      return false
+    })
+  })
+})
+
+Given('I log in to MyC by account with 50% of KYC', () => {
+  cy.visit('/').then(() => {
+    homePage.setCookie()
+    homePage.loginKYC50Percent()
+    homePage.clickMyAccount()
+    myAccountPage.checkNameUser50KYC()
+    cy.url().should('include', '/mychristies/activities')
+    cy.on('uncaught:exception', () => {
+      return false
+    })
+  })
+})
+
+Given('I log in to MyC by account with 75% of KYC', () => {
+  cy.visit('/').then(() => {
+    homePage.setCookie()
+    homePage.loginKYC75Percent()
+    homePage.clickMyAccount()
+    myAccountPage.checkNameUser75KYC()
+    cy.url().should('include', '/mychristies/activities')
+    cy.on('uncaught:exception', () => {
+      return false
+    })
+  })
+})
+
+Given('I log in to MyC by account with 100% of KYC', () => {
+  cy.visit('/').then(() => {
+    homePage.setCookie()
+    homePage.loginKYC100Percent()
+    homePage.clickMyAccount()
+    myAccountPage.checkNameUser100KYC()
+    cy.url().should('include', '/mychristies/activities')
+    cy.on('uncaught:exception', () => {
+      return false
+    })
   })
 })
 
 When('I view the KYC progress bar.',() => {
     myAccountPage.checkKYCBar()
 })
+
+// When('I view the 50% KYC progress bar.',() => {
+//   myAccountPage.checkKYCBar()
+// })
+
+// When('I view the 75% KYC progress bar.',() => {
+//   myAccountPage.checkKYCBar()
+// })
 
 When('I view the submenu sections.',() => {
   myAccountPage.checkBuyingSections()
@@ -53,4 +103,18 @@ Then('The sections should be clickable and be displayed correctly.', () => {
 Then('KYC progress bar should be displayed correctly.', () => {
   myAccountPage.checkKYCText()
 })
+
+Then('KYC progress bar should have 50% of KYC', () => {
+  myAccountPage.check50KYCText()
+})
+
+Then('KYC progress bar should have 75% of KYC', () => {
+  myAccountPage.check75KYCText()
+})
+
+
+Then('I am not able to see the KYC progress bar', () => {
+  myAccountPage.checkNotKYCBar()
+})
+
 

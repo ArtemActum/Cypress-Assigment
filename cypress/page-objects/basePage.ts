@@ -55,8 +55,8 @@ export default class BasePage {
     loginPassword = 'Zaqxsw111',
   ) {
     cy.get(this.loginBtn).click()
-    cy.get(this.userInput).click().type(loginUsername, {force: true, delay: 0})
-    cy.get(this.passwdInput).type(loginPassword, {force: true, delay: 0})
+    cy.get(this.userInput).click().type(loginUsername, {force: false, delay: 0})
+    cy.get(this.passwdInput).type(loginPassword, {force: false, delay: 0})
     cy.get(this.signInBtn).click()
   }
 
@@ -65,8 +65,38 @@ export default class BasePage {
     loginPassword = 'Test1234',
   ) {
     cy.get(this.loginBtn).click()
-    cy.get(this.userInput).click().type(loginUsername, {force: true, delay: 1000})
-    cy.get(this.passwdInput).type(loginPassword, {force: true, delay: 1000})
+    cy.get(this.userInput).click().type(loginUsername, {force: false, delay: 0})
+    cy.get(this.passwdInput).type(loginPassword, {force: false, delay: 0})
+    cy.get(this.signInBtn).click()
+  }
+
+  loginKYC50Percent(
+    loginUsername = 'int-tw2-20221220-02@yopmail.com',
+    loginPassword = 'Test1234',
+  ) {
+    cy.get(this.loginBtn).click()
+    cy.get(this.userInput).click().type(loginUsername, {force: false, delay: 0})
+    cy.get(this.passwdInput).type(loginPassword, {force: false, delay: 0})
+    cy.get(this.signInBtn).click()
+  }
+
+  loginKYC75Percent(
+    loginUsername = 'int-tw2-20221220-03@yopmail.com',
+    loginPassword = 'Test1234',
+  ) {
+    cy.get(this.loginBtn).click()
+    cy.get(this.userInput).click().type(loginUsername, {force: false, delay: 0})
+    cy.get(this.passwdInput).type(loginPassword, {force: false, delay: 0})
+    cy.get(this.signInBtn).click()
+  }
+
+  loginKYC100Percent(
+    loginUsername = 'int-tw2-20221220-04@yopmail.com',
+    loginPassword = 'Test1234',
+  ) {
+    cy.get(this.loginBtn).click()
+    cy.get(this.userInput).click().type(loginUsername, {force: false, delay: 0})
+    cy.get(this.passwdInput).type(loginPassword, {force: false, delay: 0})
     cy.get(this.signInBtn).click()
   }
 
