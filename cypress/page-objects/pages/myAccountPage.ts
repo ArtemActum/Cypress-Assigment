@@ -178,7 +178,7 @@ export default class MyAccount extends BasePage {
   }
 
   checkNameUser() {
-    cy.get(this.nameUser).should('be.visible').and('contain.text', 'Artem M')
+    cy.get(this.nameUser).should('be.visible').and('contain.text', 'Zoe Angela')
   }
 
   checkNameUser25KYC() {
