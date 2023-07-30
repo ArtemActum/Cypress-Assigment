@@ -55,8 +55,8 @@ export default class BasePage {
     loginPassword = 'Zaqxsw111',
   ) {
     cy.get(this.loginBtn).click()
-    cy.get(this.userInput).click().type(loginUsername, {force: true, delay: 700})
-    cy.get(this.passwdInput).type(loginPassword, {force: true, delay: 700})
+    cy.get(this.userInput).click().type(loginUsername, {force: true, delay: 0})
+    cy.get(this.passwdInput).type(loginPassword, {force: true, delay: 0})
     cy.get(this.signInBtn).click()
   }
 
