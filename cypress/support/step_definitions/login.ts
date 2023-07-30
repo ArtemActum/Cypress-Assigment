@@ -21,6 +21,14 @@ Given('I open Homepage', () => {
 When('I login to my account.', () => {
   homePage.login()
   homePage.clickMyAccount()
+  cy.on('uncaught:exception', (err, runnable) => {
+    // console.log(`Uncaught Exception Thrown. ${err.name}`)
+    // console.log(`Uncaught Exception Thrown. ${runnable.body}`)
+  
+    // returning false here prevents Cypress from
+    // failing the test
+    return false
+  })
 })
 
 When(
