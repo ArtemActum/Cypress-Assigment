@@ -93,6 +93,14 @@ When('I view the submenu sections.',() => {
   myAccountPage.checkSettingsSections()
 })
 
+When('Hover cursor over the information icon next to the profile status',() => {
+  myAccountPage.hoverOverKYCInfoIcon()
+})
+
+When('I click on contact-client-services link.',() => {
+  myAccountPage.clickontheServicesLink()
+})
+
 Then('The sections should be clickable and be displayed correctly.', () => {
     myAccountPage.ClickableBuyingSection()
     myAccountPage.ClickableSellingSection()
@@ -115,6 +123,10 @@ Then('KYC progress bar should have 75% of KYC', () => {
 
 Then('I am not able to see the KYC progress bar', () => {
   myAccountPage.checkNotKYCBar()
+})
+
+Then('FAQ page is opened.', () => {
+  myAccountPage.checkFAQPage()
 })
 
 

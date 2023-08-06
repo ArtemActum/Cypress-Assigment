@@ -1,5 +1,6 @@
 Feature: MyAccount
 
+#TW2-272
     Scenario: Verify submenu functionality
         Given I log in to MyC
         When I view the submenu sections.
@@ -24,7 +25,11 @@ Feature: MyAccount
         Given I log in to MyC by account with 100% of KYC
         Then I am not able to see the KYC progress bar  
 
-
+    Scenario: Contact Client Services leads to FAQ page
+        Given I log in to MyC by account with 25% of KYC
+        When Hover cursor over the information icon next to the profile status
+        When I click on contact-client-services link.
+        Then FAQ page is opened.
 
               
 

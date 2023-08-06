@@ -56,6 +56,10 @@ export default class MyAccount extends BasePage {
   postalCodeUSAInput = '#txtUSzip'
   kycProgressBar = '#ctl00_divCompleteProfile'
   kycProgressBarText = 'body.en:nth-child(2) div.main-container:nth-child(20) div.x-responsive-section form:nth-child(1) div.myc-account-progress:nth-child(18) div.chr-body-s.mr-1.progress-mob > span.mr-2'
+  kycInfoIcon = 'body.en:nth-child(2) div.main-container:nth-child(20) div.x-responsive-section div.myc-account-progress:nth-child(18) chr-tooltip.mob-tooltips.chr-tooltip.hydrated div.chr-tooltip__wrapper.chr-tooltip__wrapper--clickable chr-outside-interaction.hydrated chr-button.hydrated button.chr-button.chr-button--icon.chr-button--sm.chr-button--dark.chr-button--icon-left.chr-button--icon-xs.chr-tooltip__btn chr-icon.hydrated div.chr-icon__wrapper > span.chr-icon.chr-icon--xs'
+  kycInfoToolTip = '#tooltip-8f5c7a0f-4ed4-4be0-9786-7eabbdd41c16'
+  clientSevicesLink = 'body.en:nth-child(2) div.main-container:nth-child(20) div.x-responsive-section div.myc-account-progress:nth-child(18) chr-tooltip.mob-tooltips.chr-tooltip.hydrated div.chr-tooltip__wrapper.chr-tooltip__wrapper--clickable chr-outside-interaction.hydrated div.chr-tooltip__position.chr-tooltip__position--center div.chr-tooltip__content.chr-tooltip__content--clickable.chr-tooltip__content--center div.desktop-chatwithus-show:nth-child(4) > a.chr-link--underline'
+  FAQPage = 'body.en:nth-child(2) div.container1:nth-child(13) div.x-responsive-section:nth-child(2) div.container:nth-child(5) div.row.faq:nth-child(5) > h2:nth-child(1)'
   // Page Object Methods
 
   logout() {
@@ -252,6 +256,23 @@ export default class MyAccount extends BasePage {
   check75KYCText() {
     cy.get(this.kycProgressBar).should('be.visible').and('contain.text', 'Your profile is 75% complete.')
   }
+
+  hoverOverKYCInfoIcon() {
+    cy.get(this.kycInfoIcon).click()
+  }
+
+  checkKYCToolTip() {
+    cy.get(this.kycInfoToolTip).should('be.visible').and('contain.text', 'Your profile is 25% complete. You can follow auctions and lots but can’t place bids yet. Add your contact details and verify your identity to complete your profile.', { force: true })
+  }
+
+  clickontheServicesLink() {
+    cy.get(this.clientSevicesLink).should('be.visible').click()
+  }
+
+  checkFAQPage() {
+    cy.get(this.FAQPage).should('be.visible')
+  }
+
 
   
 
