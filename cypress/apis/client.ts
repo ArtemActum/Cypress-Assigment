@@ -1,21 +1,23 @@
 class ApiClient {
-  private _baseUrl
-  private _endpoint
+  private _baseUrl: string
+  private _endpoint: string
 
-  public get baseUrl() {
+  public get baseUrl(): string {
     return 'https://restful-booker.herokuapp.com'
   }
 
-  public get endpoint() {
+  public get endpoint(): string {
     return this._endpoint
   }
 
-  public set endpoint(endpoint) {
+  public set endpoint(endpoint: string) {
     this._endpoint = this.baseUrl + endpoint
   }
 
+
+
   // Client Methods
-  public getBookingIds(endpoint = '/booking') {
+  public getBookingIds(endpoint = '/booking?lastname=Minsadyrov') {
     this.endpoint = endpoint
     cy.request(this.endpoint).then(($response) => {
       expect($response.status).to.equal(200)
@@ -48,6 +50,9 @@ class ApiClient {
       body: data,
     }).then(($response) => {
       expect($response.status).to.equal(200)
+      let token = $response.body.token
+      cy.log("Your token is: "+ token)
+      //expect($response.data).to.be.jsonSchema(schema.VALID_SCHEMA)
       // const token = $response.json()
       // pm.environment.set('token', token)
       // return 'token'
@@ -73,10 +78,12 @@ class ApiClient {
       body: data1,
     }).then(($response) => {
       expect($response.status).to.equal(200)
+      let bookId = $response.body.bookingid
+      cy.log("Your Booking ID is: "+ bookId)
     })
   }
 
-  public updateBooking(endpoint = '/booking/9475') {
+  public updateBooking(endpoint = '/booking/2688') {
     const data2 = {
       firstname: 'Artem4',
       lastname: 'Minsadyrov4',
@@ -94,15 +101,15 @@ class ApiClient {
       method: 'PUT',
       body: data2,
       headers: {
-        Cookie: 'token=10c8b69d47c51b5',
-        Authorisation: '10c8b69d47c51b5',
+        Cookie: 'token=3c305554f849095',
+        Authorisation: '3c305554f849095',
       },
     }).then(($response) => {
       expect($response.status).to.equal(200)
     })
   }
 
-  public partialUpdateBooking(endpoint = '/booking/9475') {
+  public partialUpdateBooking(endpoint = '/booking/2688') {
     const data2 = {
       totalprice: 777,
     }
@@ -112,8 +119,8 @@ class ApiClient {
       method: 'PATCH',
       body: data2,
       headers: {
-        Cookie: 'token=10c8b69d47c51b5',
-        Authorisation: '10c8b69d47c51b5',
+        Cookie: 'token=3c305554f849095',
+        Authorisation: '3c305554f849095',
       },
     }).then(($response) => {
       expect($response.status).to.equal(200)
@@ -126,7 +133,7 @@ class ApiClient {
       url: this.endpoint,
       method: 'DELETE',
       headers: {
-        Cookie: 'token=10c8b69d47c51b5',
+        Cookie: 'token=3c305554f849095',
       },
     }).then(($response) => {
       expect($response.status).to.equal(201)
