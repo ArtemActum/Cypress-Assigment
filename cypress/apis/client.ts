@@ -14,8 +14,6 @@ class ApiClient {
     this._endpoint = this.baseUrl + endpoint
   }
 
-
-
   // Client Methods
   public getBookingIds(endpoint = '/booking?lastname=Minsadyrov') {
     this.endpoint = endpoint
@@ -51,7 +49,7 @@ class ApiClient {
     }).then(($response) => {
       expect($response.status).to.equal(200)
       let token = $response.body.token
-      cy.log("Your token is: "+ token)
+      cy.log('Your token is: ' + token)
       //expect($response.data).to.be.jsonSchema(schema.VALID_SCHEMA)
       // const token = $response.json()
       // pm.environment.set('token', token)
@@ -79,7 +77,7 @@ class ApiClient {
     }).then(($response) => {
       expect($response.status).to.equal(200)
       let bookId = $response.body.bookingid
-      cy.log("Your Booking ID is: "+ bookId)
+      cy.log('Your Booking ID is: ' + bookId)
     })
   }
 

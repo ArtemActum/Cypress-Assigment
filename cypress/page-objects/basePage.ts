@@ -1,5 +1,5 @@
 export default class BasePage {
-  // Elements
+  // Selectors
 
   tradChineseLink = '[lang="zh"]'
   simpleChineseLink = '[lang="zh-cn"]'
@@ -33,7 +33,7 @@ export default class BasePage {
   //   cy.visit(path).then(() => {
   //     cy.setCookies()
   //   })
-  // }
+  // }s
 
   open(path) {
     cy.visit(path).then(() => {
