@@ -50,7 +50,7 @@ This command will run Cypress in headless mode and generate test reports in the 
 
 - If you want to run the tests in an interactive mode and view the Cypress test runner, use the command:
 ```bash
-npm run cypress:open
+npm run cy:open
 ```
 
 This will open the Cypress Test Runner, allowing you to select and run individual test cases.
